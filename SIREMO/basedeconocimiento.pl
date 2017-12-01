@@ -109,47 +109,45 @@ contadorVotos(P, R, Re, Va, Pu, AuxRe, AuxVa, AuxPu):- esSolucion(P,R), P=13, R=
 contadorVotos(P, R, Re, Va, Pu, AuxRe, AuxVa, AuxPu):- esSolucion(P,R), P=13, R=3, B3 is Pu+1, AuxRe=Re, AuxVa=Va, AuxPu=B3.  
 
 
-estilo(Re,Va,Pu,C,D) :- Re >= Va , Va >= Pu, rocker(C,D) . 
-estilo(Re,Va,Pu,C,D) :- Re >= Pu , Pu >= Va,  hipster(C,D) . 
+estilo(Re,Va,Pu,C,D) :- Re > Va , Va > Pu, rocker(C,D) . 
 
-estilo(Re,Va,Pu,C,D) :- Va >= Pu , Pu >= Re, trendy(C,D) . 
-estilo(Re,Va,Pu,C,D) :- Va >= Re , Re >= Pu, streetWear(C,D) . 
+estilo(Re,Va,Pu,C,D) :- Re > Pu , Pu > Va,  athleisure(C,D) . 
 
-estilo(Re,Va,Pu,C,D) :- Pu >= Re , Re >= Va, casual(C,D) . 
-estilo(Re,Va,Pu,C,D) :- Pu >= Va , Va >= Re, elegante(C,D) . 
+estilo(Re,Va,Pu,C,D) :- Va > Pu , Pu > Re, trendy(C,D) . 
+
+estilo(Re,Va,Pu,C,D) :- Va > Re , Re > Pu, streetWear(C,D) . 
+
+estilo(Re,Va,Pu,C,D) :- Pu > Re , Re > Va, casual(C,D) . 
+estilo(Re,Va,Pu,C,D) :- Pu > Va , Va > Re, elegante(C,D) . 
+
+estilo(Re,Va,Pu,C,D) :- Re = Va , Va > Pu, hipster(C,D) .
+
+estilo(Re,Va,Pu,C,D) :- Re = Va , Va < Pu,  atrevido(C,D) .
+
+estilo(Re,Va,Pu,C,D) :- Va = Pu , Pu > Re,  sofisticado(C,D) .
+
+estilo(Re,Va,Pu,C,D) :- Va = Pu , Pu < Re,  skater(C,D) .
+
+%estilo(Re,Va,Pu,C,D) :- Re = Pu , Pu > Va,  hipster(C,D) .
+
+estilo(Re,Va,Pu,C,D) :- Re = Pu , Pu < Va,  deportivo(C,D) .  
+
+rocker(C,D):- C='Rocker' ,
+D='El estilo Rocker es muy versátil y va a cambiar de persona a persona, dependiendo del 
+tipo particular de rock que aman. Sin embargo, si estás luciendo una camiseta “Ramones”
+ o una sudadera Metálica, tendrás unas cuantas cosas en común: vaqueros rasgados, botas, 
+ chaquetas de cuero y los pantalones, y clavos.'.
 
 
-rocker(C,D):- C='Colérico' ,
-D='AtRevido para empRender nuevas taReas.
-Tiende a los arRebatos o estallidos emocionales.
-Es extrovertido y tiene facilidad para las Relaciones sociales.
-Tiende a abandonar los objetivos cuando surgen las mayoRes dificultades.
-Puede ser pResa de la dispersión al hacer varias taReas y no concentrarse solo en una.
-Tendencia a una baja disciplina.
-Pueden ser eficientes en la improvisación.
-Desea Respuestas inmediatas y no quieRe proyectos con frutos a largo plazo.
-Es compasivo, generoso y servicial.
-Su sentido práctico lo libera de guardar RencoRes.
-Decide por sí mismo.
-A veces no es consciente de sus limitaciones.
-Pone su mejor empeño en sus actividades, pero como tiende a la inconstancia, es adecuado que trabaje en objetivos de corto plazo.'.
+hipster(C,D):- C='Hipster' , 
+D='Los Hipsters del siglo XXI surgieron en Nueva York sobre el año 2000 
+cuando jóvenes de buena educación comenzaron a involucrarse con más interés 
+en el mundo del arte, la moda, la musica y la cultura en general. Su base 
+estética es el rechazo por el canon estético de los EE.UU. Los chicos llevan 
+abundante barba y un básico es la camisa de cuadros. Las chicas van con pantalones 
+super slim, gorro y un fijo son las converse o zapatillas retro.'.
 
-
-hipster(C,D):- C='Apasionado' , 
-D='Una gran disposición al sacrificio.
-Posee una visión de largo plazo y está dispuesto a pagar el pRecio para obtener el exito que quieRe.
-Compasivo, compRensivo, servicial.
-Posee el don de mando y puede desempeñarse con éxito en puestos que exijan un buen liderazgo.
-En su afán por lograr sus propósitos puede arrastrar a otras personas a conflictos o no considerar las emociones de los demás.
-Tienden a ser Reservados en su vida amorosa.
-Gran capacidad para el trabajo, organizado y un gran sentido de Responsabilidad.
-Capacidad de razonamiento abstracto y lógico.
-PRefeRencia por trabajar solo.
-Facilidad al autodominio y la templanza para no dejarse llevar por los placeRes de los sentidos.
-Pueden ser demasiado orgullosos.
-Poca docilidad.'.
-
-trendy(C,D):- C='Nervioso' , 
+trendy(C,D):- C='Trendy' , 
 D='Personas muy sensibles que tienen el deseo de vivir con mucha intensidad.
 Pueden cambiar de humor con facilidad.
 QuieRe buenos Resultados en poco tiempo y que no impliquen grandes esfuerzos.
