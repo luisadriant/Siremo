@@ -13,7 +13,7 @@ public class PrologTest {
 		if(q.hasSolution()) {
 			System.out.println("Cargada");
 		}else {
-			System.out.println("Error, no se pudo cargar la base.");
+			System.out.println("Error, no se pudo cargar la base de conocimiento.");
 		}
 		try {
 			Query q2 = new Query(query);
