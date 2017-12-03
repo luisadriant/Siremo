@@ -9,7 +9,13 @@ public class PrologTest {
 	
 	public String preguntasTest(String query) {
 		String respuesta="";
-		
+
+  		Query q = new Query("consult('basedeconocimiento.pl')");
+		if(q.hasSolution()) {
+			System.out.println("Cargada");
+		}else {
+			System.out.println("Error, no se pudo cargar la base de conocimiento.");
+		}
 		try {
 			Query q2 = new Query(query);
 			System.out.println(q2.hasSolution()? "verdadero":"falso");
