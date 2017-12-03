@@ -7,9 +7,10 @@ import org.jpl7.Term;
 
 public class PrologTest {
 	
-	public String contrapreguntas(String query) {
+	public String preguntasTest(String query) {
 		String respuesta="";
-		Query q = new Query("consult('basedeconocimiento.pl')");
+
+  		Query q = new Query("consult('basedeconocimiento.pl')");
 		if(q.hasSolution()) {
 			System.out.println("Cargada");
 		}else {
