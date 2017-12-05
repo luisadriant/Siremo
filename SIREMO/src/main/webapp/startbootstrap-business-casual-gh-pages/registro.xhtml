@@ -1,0 +1,51 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    template="prueba.xhtml">
+    
+	
+	<ui:define name="contenido">
+		<h:form>
+ <h:messages globalOnly="true"/>
+	<h:panelGrid columns="3">
+		
+		<h:outputLabel value="Nombres" for="nombres"/>
+		<h:inputText value="#{usuarioControlador.usuario.nombres}" id="nombres" />
+		<h:message for="nombres"/>
+		
+		<h:outputLabel value="Apellidos" for="apellidos"/>
+		<h:inputText value="#{usuarioControlador.usuario.apellidos}" id="apellidos" />
+		<h:message for="apellidos"/>
+		
+		<h:outputLabel value="NombreUsuario" for="nombreusuario"/>
+		<h:inputText value="#{usuarioControlador.usuario.nombreusuario}" id="nombreusuario" />
+		<h:message for="nombreusuario"/>
+		
+		<h:outputLabel value="Telefono" for="telefono"/>
+		<h:inputText value="#{usuarioControlador.usuario.telefono}" id="telefono" />
+		<h:message for="telefono"/>
+		
+		<h:outputLabel value="Email" for="email"/>
+		<h:inputText value="#{usuarioControlador.usuario.email}" id="email" />
+		<h:message for="email"/>
+		
+		<h:outputLabel value="FechaNacimiento" for="fechaNacimiento"/>
+		<h:inputText value="#{usuarioControlador.usuario.fechanacimiento}" id="fechaNacimiento" > 
+			<f:convertDateTime pattern="dd/MM/yyyy"/>
+		</h:inputText>
+		<h:message for="fechaNacimiento"/>
+		
+		<h:outputLabel value="Contasenia" for="pass"/>
+		<h:inputText value="#{usuarioControlador.usuario.contrasenia}" id="pass" />
+		<h:message for="pass"/>
+		
+		<h:commandButton action="#{usuarioControlador.Guardar()}" value="Registrar" />
+	</h:panelGrid>
+		<h:commandButton action="listaUsuario" value="Listado de Usuarios" inmediate="true"/>
+</h:form>
+
+	</ui:define>
+
+
+</ui:composition>
