@@ -1,0 +1,78 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    template="editarEmpresaT.xhtml">
+     
+	
+	<ui:define name="contenido">
+<h:form>
+	<h:panelGrid columns="3">
+		
+		<h:outputLabel value="Nombre:" for="nombre"/>
+		<h:inputText value="#{empresaControlador.empresa.nombre}" id="nombre" />
+		<h:message for="nombre"/>
+		
+		<h:outputLabel value="Descripcion:" for="descripcion"/>
+		<h:inputText value="#{empresaControlador.empresa.descripcion}" id="descripcion" />
+		<h:message for="descripcion"/>
+		
+		<h:outputLabel value="Direccion:" for="direccion"/>
+		<h:inputText value="#{empresaControlador.empresa.direccion}" id="direccion" />
+		<h:message for="direccion"/>
+		
+		<h:outputLabel value="Ruc:" for="ruc"/>
+		<h:inputText value="#{empresaControlador.empresa.ruc}" id="ruc" />
+		<h:message for="ruc"/>
+		
+		
+	</h:panelGrid>
+	
+		
+		<h:commandButton action="#{empresaControlador.addVestimenta()}" value="+ Vestimentas" >
+		<f:ajax render="ves" execute="@all"></f:ajax>
+		</h:commandButton>
+	<h:panelGrid>
+		<h:dataTable id="ves" value="#{empresaControlador.empresa.vestimentas}" var="vestimentas">
+		<h:column>
+			<f:facet name="header">Descripcion</f:facet>
+			<h:inputText value="#{vestimentas.descripcion}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Color</f:facet>
+			<h:inputText value="#{vestimentas.color}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Estilo</f:facet>
+			<h:inputText value="#{vestimentas.estilo}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Genero</f:facet>
+			<h:inputText value="#{vestimentas.genero}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Tipo</f:facet>
+			<h:inputText value="#{vestimentas.tipo}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Precio</f:facet>
+			<h:inputText value="#{vestimentas.precio}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Talla</f:facet>
+			<h:inputText value="#{vestimentas.talla}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Imagen</f:facet>
+			<h:inputText value="#{vestimentas.imagen}" />
+		</h:column>
+		</h:dataTable>
+	</h:panelGrid>
+	
+	<h:commandButton action="#{empresaControlador.Guardar()}" value="Guardar" class="btn btn-secondary"/>
+	<h:commandButton action="listaEmpresas" value="Listado de Empresas" inmediate="true" class="btn btn-secondary"/>
+	</h:form>
+	</ui:define>
+
+
+</ui:composition>
