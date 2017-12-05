@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+<h:form>
+	<h:panelGrid columns="3">
+		
+		<h:outputLabel value="Nombres" for="nombres"/>
+		<h:inputText value="#{administradorControlador.administrador.nombres}" id="nombres" />
+		<h:message for="nombres"/>
+		
+		<h:outputLabel value="Apellidos" for="apellidos"/>
+		<h:inputText value="#{administradorControlador.administrador.apellidos}" id="apellidos" />
+		<h:message for="apellidos"/>
+		
+		<h:outputLabel value="NombreUsuario" for="nombreusuario"/>
+		<h:inputText value="#{administradorControlador.administrador.nombreusuario}" id="nombreusuario" />
+		<h:message for="nombreusuario"/>
+		
+		<h:outputLabel value="Telefono" for="telefono"/>
+		<h:inputText value="#{administradorControlador.administrador.telefono}" id="telefono" />
+		<h:message for="telefono"/>
+		
+		<h:outputLabel value="Email" for="email"/>
+		<h:inputText value="#{administradorControlador.administrador.email}" id="email" />
+		<h:message for="email"/>
+		
+		<h:outputLabel value="FechaNacimiento" for="fechaNacimiento"/>
+		<h:inputText value="#{administradorControlador.administrador.fechanacimiento}" id="fechaNacimiento" > 
+			<f:convertDateTime pattern="dd/MM/yyyy"/>
+		</h:inputText>
+		<h:message for="fechaNacimiento"/>
+		
+		<h:outputLabel value="Contasenia" for="pass"/>
+		<h:inputText value="#{administradorControlador.administrador.contrasenia}" id="pass" />
+		<h:message for="pass"/>
+		
+	</h:panelGrid>
+	
+		<h:commandButton action="#{administradorControlador.addEmpresa()}" value="+ Empresas" >
+		<f:ajax render="tel" execute="@all"></f:ajax>
+		</h:commandButton>
+	<h:panelGrid>
+		<h:dataTable id="tel" value="#{administradorControlador.administrador.empresas}" var="empresas">
+		<h:column>
+			<f:facet name="header">Nombre</f:facet>
+			<h:inputText value="#{empresas.nombre}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Descripcion</f:facet>
+			<h:inputText value="#{empresas.descripcion}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Ruc</f:facet>
+			<h:inputText value="#{empresas.ruc}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Direccion</f:facet>
+			<h:inputText value="#{empresas.direccion}" />
+		</h:column>
+		</h:dataTable>
+	</h:panelGrid>
+	
+	<h:commandButton action="#{administradorControlador.Guardar()}" value="Registrar" />
+	<h:commandButton action="listaAdministrador" value="Listado de Administradores" inmediate="true"/>
+</h:form>
+
+</body> 
+</html>

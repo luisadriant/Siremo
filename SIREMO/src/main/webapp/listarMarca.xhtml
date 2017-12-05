@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+	<h:outputText value="No hay registros" rendered="#{empty marcaControlador.marcas}"/>
+	<h:dataTable value="#{marcaControlador.marcas}" var="marcas" rendered="#{not empty marcaControlador.marcas}">
+		<h:column> <f:facet name="header"> ID </f:facet> #{marcas.id} </h:column>
+		<h:column> <f:facet name="header"> NOMBRES </f:facet> #{marcas.nombre} </h:column>
+		<h:column> <f:facet name="header"> EDITAR </f:facet> 
+		<h:commandButton action="#{marcaControlador.loadDatoseditar(marcas.id)}" value="Editar" />
+		<a href="editarMarca.xhtml?id=#{marcas.id}"> editar </a>
+		</h:column>
+		<h:column> <f:facet name="header"> ELIMINAR </f:facet> 
+		<h:commandButton action="#{marcaControlador.Eliminar(marcas.id)}" value="Eliminar" />
+		</h:column>
+	</h:dataTable>
+	<h:commandButton action="crearMarca" value="Crear Marca" />
+
+</h:form>
+</body> 
+</html>

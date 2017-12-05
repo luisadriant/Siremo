@@ -13,7 +13,7 @@ public class Resources {
 
 	@Produces
 	@PersistenceContext
-	private EntityManager em;
+	private EntityManager EM;
 	
 	@Produces
     public Logger produceLog(InjectionPoint injectionPoint) {

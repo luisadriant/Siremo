@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+ <h:messages globalOnly="true"/>
+	<h:panelGrid columns="3">
+		
+		<h:outputLabel value="descripcion" for="descripcion"/>
+		<h:inputText value="#{vestimentaControlador.vestimenta.descripcion}" id="descripcion" />
+		<h:message for="descripcion"/>
+		
+		<h:outputLabel value="color" for="color"/>
+		<h:inputText value="#{vestimentaControlador.vestimenta.color}" id="color" />
+		<h:message for="color"/>
+		
+		<h:outputLabel value="estilo" for="estilo"/>
+		<h:inputText value="#{vestimentaControlador.vestimenta.estilo}" id="estilo" />
+		<h:message for="estilo"/>
+		
+		<h:outputLabel value="genero" for="genero"/>
+		<h:inputText value="#{vestimentaControlador.vestimenta.genero}" id="genero" />
+		<h:message for="genero"/>
+		
+		<h:outputLabel value="precio" for="precio"/>
+		<h:inputText value="#{vestimentaControlador.vestimenta.precio}" id="precio" />
+		<h:message for="precio"/>
+		
+		<h:outputLabel value="talla" for="talla"/>
+		<h:inputText value="#{vestimentaControlador.vestimenta.talla}" id="talla">
+		</h:inputText>
+		<h:message for="talla"/>
+		
+		<h:outputLabel value="imagen" for="imagen"/>
+		<h:inputText value="#{vestimentaControlador.vestimenta.imagen}" id="imagen">
+		</h:inputText>
+		<h:message for="imagen"/>
+		
+		<h:outputLabel value="tipo" for="tipo"/>
+		<h:inputText value="#{vestimentaControlador.vestimenta.tipo}" id="tipo" />
+		<h:message for="tipo"/>
+		
+		<h:commandButton action="#{vestimentaControlador.Guardar()}" value="Registrar" />
+	</h:panelGrid>
+		<h:commandButton action="listaVestimentas" value="Listado de Vestimentas" inmediate="true"/>
+</h:form>
+
+
+</body> 
+</html>

@@ -1,0 +1,177 @@
+package modelo;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name="sir_vestimenta")
+public class Vestimenta implements Serializable {
+	
+	@Id
+	@GeneratedValue
+	@Column(name="ves_id")
+	private int id;
+	
+	@Column(name="ves_descripcion")
+	@NotNull
+	private String Descripcion;
+	
+	@Column(name="ves_color")
+	@NotNull
+	private String color;
+	
+	@Column(name="ves_talla")
+	@NotNull
+	private String talla;
+	
+	@Column(name="ves_genero")
+	@NotNull
+	private String genero;
+	
+	@Column(name="ves_precio")
+	@NotNull
+	@DecimalMin("0.00")
+	private Double precio;
+	
+	@Column(name="ves_tipo")
+	@NotNull
+	private String tipo;
+	
+	@Column(name="ves_estilo")
+	@NotNull
+	private String estilo;
+	
+	@Column(name="ves_imagen")
+	@NotNull
+	private String imagen;
+	
+	
+	/*@ManyToOne
+	@JoinColumn(name="ves_mar_id", referencedColumnName="mar_id")
+	private Marca marca;*/
+	
+	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
+	@JoinColumn(name="vot_ves_id", referencedColumnName="ves_id")
+	private List<Votos> votos;
+	
+	@ManyToMany(mappedBy="vestimentas")
+	private List<Usuario> usuarios;
+	
+	
+	public List<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	public List<Votos> getVotos() {
+		return votos;
+	}
+
+	public void setVotos(List<Votos> votos) {
+		this.votos = votos;
+	}
+
+	
+	/*
+	public Marca getMarca() {
+		return marca;
+	}
+
+	public void setMarca(Marca marca) {
+		this.marca = marca;
+	}*/
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDescripcion() {
+		return Descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		Descripcion = descripcion;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getTalla() {
+		return talla;
+	}
+
+	public void setTalla(String talla) {
+		this.talla = talla;
+	}
+
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+	public Double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Double precio) {
+		this.precio = precio;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getEstilo() {
+		return estilo;
+	}
+
+	public void setEstilo(String estilo) {
+		this.estilo = estilo;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+/*
+	public void addMarca(Marca marca) {
+		this.marca=marca;
+	}*/
+	
+}
