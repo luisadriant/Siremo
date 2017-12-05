@@ -7,6 +7,7 @@
 <h:head></h:head> 
 <body> 
 <h:form>
+<h:messages globalOnly="true"/>
 	<h:outputText value="No hay registros" rendered="#{empty empresaControlador.empresas}"/>
 	<h:dataTable value="#{empresaControlador.empresas}" var="empresa" rendered="#{not empty empresaControlador.empresas}">
 		<h:column> <f:facet name="header"> ID </f:facet> #{empresa.id} </h:column>

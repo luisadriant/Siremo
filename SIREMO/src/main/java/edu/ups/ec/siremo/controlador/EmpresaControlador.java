@@ -1,4 +1,4 @@
-package controlador;
+package edu.ups.ec.siremo.controlador;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +13,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
 import javax.inject.Inject;
-import dao.EmpresaDao;
-import dao.MarcaDao;
+
+import edu.ups.ec.siremo.dao.EmpresaDao;
+import edu.ups.ec.siremo.dao.MarcaDao;
+import edu.ups.ec.siremo.modelo.Empresa;
+import edu.ups.ec.siremo.modelo.Marca;
+import edu.ups.ec.siremo.modelo.Vestimenta;
 import edu.ups.ec.siremo.util.ErrorsController;
-import modelo.Empresa;
-import modelo.Marca;
-import modelo.Vestimenta;
 
 /**
  * Esta clase sirve para enlazar la vista del archivo xhtml con el controlador de la Empresa
