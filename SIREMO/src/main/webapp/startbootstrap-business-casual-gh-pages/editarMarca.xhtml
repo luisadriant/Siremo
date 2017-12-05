@@ -3,14 +3,14 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-       template="editarMarcaT.xhtml"
+       template="crearUsuarioT.xhtml"
       > 
 <ui:define name="contenido">
 
 <f:metadata>
 <f:viewParam name="id" value="#{marcaControlador.id}"></f:viewParam>
 </f:metadata>
-<body> 
+
 <h:form>
  <h:messages globalOnly="true"/>
 	<h:panelGrid columns="3">
@@ -24,6 +24,6 @@
 		<br />
 		<h:commandButton action="listarMarca" value="Listado de Marcas" inmediate="true" class="btn btn-secondary"/>
 </h:form>
-</body>
+
 </ui:define> 
 </ui:composition>

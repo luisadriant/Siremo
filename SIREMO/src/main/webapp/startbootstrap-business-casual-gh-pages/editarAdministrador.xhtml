@@ -3,14 +3,14 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      template="editarAdministradorT.xhtml"
+      template="crearUsuarioT.xhtml"
       > 
 <ui:define name="contenido">
 <f:metadata>
 <f:viewParam name="id" value="#{administradorControlador.id}"></f:viewParam>
 </f:metadata>
-<body> 
 <h:form>
+<h:messages globalOnly="true"/>
 	<h:panelGrid columns="3">
 		
 		<h:outputLabel value="Nombres" for="nombres"/>
@@ -80,7 +80,5 @@
 	<h:commandButton action="listaEmpresas" value="Listado de Empresas" inmediate="true"/>
 	
 </h:form>
-</body> 
- 
 </ui:define> 
 </ui:composition>

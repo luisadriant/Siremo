@@ -3,13 +3,13 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      template="listaUsuarioT.xhtml"
+      template="crearUsuarioT.xhtml"
       > 
       <ui:define name="contenido">
 <f:metadata>
 <f:viewParam name="id" value="#{vestimentaControlador.id}"></f:viewParam>
 </f:metadata>
-<body> 
+
 <h:form>
 <h:messages globalOnly="true"/>
 	<h:panelGrid columns="3">
@@ -96,10 +96,10 @@
 	</h:panelGrid>
 	
 	<h:commandButton action="#{vestimentaControlador.Guardar()}" value="Guardar" />
-	<h:commandButton action="listaUsuariosVotar" value="Listado Usuarios para Votar" inmediate="true"/>
+	<h:commandButton action="listaUsuarioVotar" value="Listado Usuarios para Votar" inmediate="true"/>
 	
 </h:form>
 
-</body> 
+
 </ui:define> 
 </ui:composition>

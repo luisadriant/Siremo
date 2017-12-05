@@ -2,14 +2,14 @@
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 
-   <h:head>
+  <head>
 
     <meta charset="utf-8"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
     <meta name="description" content=""></meta>
     <meta name="author" content=""></meta>
 
-    <title>Registro de Usuarios</title>
+    <title>Lista Empresas</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
@@ -22,7 +22,7 @@
     <!-- Custom styles for this template -->
     <link href="css/business-casual.css" rel="stylesheet"></link>
 
-  </h:head>
+  </head>
 
   <body>
 
@@ -36,57 +36,27 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="indexBueno.xhtml">Inicio
+              <a class="nav-link text-uppercase text-expanded" href="indexBueno.xhtml">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="crearUsuario.xhtml">Crear Usuario</a>
+              <a class="nav-link text-uppercase text-expanded" href="crearUsuario.xhtml">Registrarse</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="crearAministrador.xhtml">Crear Admini</a>
+              <a class="nav-link text-uppercase text-expanded" href="blog.html">Blog</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="crearMarca.xhtml">Crear una marca</a>
+              <a class="nav-link text-uppercase text-expanded" href="contact.html">Contact</a>
             </li>
-            
           </ul>
         </div>
       </div>
     </nav>
-    
-    <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
-    	
-	    <div class="container">
-	        <div class="collapse navbar-collapse" id="navbarResponsivee">
-        		<ul class="navbar-nav mx-auto">
-					
-	            	<li class="nav-item px-lg-4">
-	              	<a class="nav-link text-uppercase text-expanded" href="listaUsuario.xhtml">Lista de Usuarios</a>
-	            	</li>
-	            	<li class="nav-item px-lg-4">
-	              	<a class="nav-link text-uppercase text-expanded" href="listaUsuarioVotar.xhtml">Lista Votos</a>
-	            	</li>
-	            	
-	            	<li class="nav-item px-lg-4">
-	              	<a class="nav-link text-uppercase text-expanded" href="listaEmpresas.xhtml">Lista Empresas</a>
-	            	</li>
-	            	
-	            	<li class="nav-item px-lg-4">
-	              	<a class="nav-link text-uppercase text-expanded" href="listaAdministrador.xhtml">Lista Admin</a>
-	            	</li>
-	            	
-	            	
-	            	</ul>
-        	</div>
-	    </div>
-	    
-	    
-     </nav>
+
     <div class="container">
 
       <div class="bg-faded p-4 my-4">
@@ -131,11 +101,11 @@
 
       <div class="bg-faded p-4 my-4">
         <hr class="divider"></hr>
-        <h2 class="text-center text-lg text-uppercase my-0">Aquí puedes
-          <strong>registrarte</strong>
+        <h2 class="text-center text-lg text-uppercase my-0">Lista
+          <strong>Empresas</strong>
         </h2>
         <hr class="divider"></hr>
-        <img class="img-fluid float-left mr-4 d-none d-lg-block" src="img/intro-pic.jpg" alt=""></img>
+      
         <ui:insert name="contenido">
             	Aqui ira el contenido de la pagina  o formularios 
             	</ui:insert>
