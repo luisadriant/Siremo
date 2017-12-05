@@ -11,7 +11,7 @@ import javax.inject.Inject;
 
 import org.jpl7.Query;
 
-import edu.ups.ec.siremo.controladores.se.PrologTest;
+import edu.ups.ec.siremo.SE.PrologTest;
 
 
 
