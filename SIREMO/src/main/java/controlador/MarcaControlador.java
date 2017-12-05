@@ -56,7 +56,7 @@ public class MarcaControlador {
 		 System.out.println("hola");
 		 MDAO.Guardar(marca);
 		 loadMarcas();
-		 return null;
+		 return "listarMarca";
 	}
 	public String Eliminar(int id) {
 		MDAO.Borrar(id);

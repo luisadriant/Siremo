@@ -12,7 +12,6 @@
 		<h:column> <f:facet name="header"> ID </f:facet> #{marcas.id} </h:column>
 		<h:column> <f:facet name="header"> NOMBRES </f:facet> #{marcas.nombre} </h:column>
 		<h:column> <f:facet name="header"> EDITAR </f:facet> 
-		<h:commandButton action="#{marcaControlador.loadDatoseditar(marcas.id)}" value="Editar" />
 		<a href="editarMarca.xhtml?id=#{marcas.id}"> editar </a>
 		</h:column>
 		<h:column> <f:facet name="header"> ELIMINAR </f:facet> 

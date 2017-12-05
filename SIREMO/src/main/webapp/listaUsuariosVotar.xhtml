@@ -17,11 +17,8 @@
 		<h:column> <f:facet name="header"> FECHA NACIMIENTO </f:facet> #{usuario.fechanacimiento} </h:column>
 		<h:column> <f:facet name="header"> NOMBRE USUARIO </f:facet> #{usuario.nombreusuario} </h:column>
 		<h:column> <f:facet name="header"> PASS </f:facet> #{usuario.contrasenia} </h:column>
-		<h:column> <f:facet name="header"> EDITAR </f:facet> 
-		<a href="editarUsuario.xhtml?id=#{usuario.id}"> editar </a>
-		</h:column>
-		<h:column> <f:facet name="header"> ELIMINAR </f:facet> 
-		<h:commandButton action="#{usuarioControlador.Eliminar(usuario.id)}" value="Eliminar" />
+		<h:column> <f:facet name="header"> VOTAR </f:facet> 
+		<a href="votosUsuarios.xhtml?id=#{usuario.id}"> Votar </a>
 		</h:column>
 	</h:dataTable>
 	<h:commandButton action="crearUsuario" value="Crear Usuario" />

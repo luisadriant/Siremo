@@ -10,6 +10,7 @@
 </f:metadata>
 <body> 
 <h:form>
+		
 	<h:panelGrid columns="3">
 		
 		<h:outputLabel value="Nombre" for="nombre"/>
@@ -69,6 +70,14 @@
 			<f:facet name="header">Imagen</f:facet>
 			<h:inputText value="#{vestimentas.imagen}" />
 		</h:column>
+		<h:column>
+			<f:facet name="header">Marca</f:facet>
+			<h:selectOneMenu value="#{vestimentas.id_marca}">
+				<f:selectItems value="#{empresaControlador.camposMarcas}"/> 
+			</h:selectOneMenu>
+		</h:column>
+		
+		
 		</h:dataTable>
 	</h:panelGrid>
 	
