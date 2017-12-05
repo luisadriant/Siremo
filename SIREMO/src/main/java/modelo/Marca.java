@@ -10,6 +10,10 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Esta clase es la entidad Marca que contiene los getters y setters.
+ * @author root
+ */
 @Entity
 @Table(name="sir_marca", uniqueConstraints = @UniqueConstraint(columnNames = "mar_nombre"))
 public class Marca implements Serializable {
@@ -23,9 +27,9 @@ public class Marca implements Serializable {
 	private String nombre;
 	
 	public int getId() {
-		System.out.println("Boris ");
+
 		return id;
-		//get del id de la marca
+		
 	}
 	public void setId(int id) {
 		this.id = id;

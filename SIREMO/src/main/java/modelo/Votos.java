@@ -9,6 +9,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Esta clase es la entidad Votos que contiene los getters y setters.
+ * @author root
+ */
 @Entity
 @Table(name="sir_votos")
 public class Votos {

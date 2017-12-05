@@ -11,7 +11,10 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
-
+/**
+ * Esta clase es la entidad Administrador que contiene los getters y setters.
+ * @author root
+ */
 @Entity
 @DiscriminatorValue(value="Administrador")
 public class Administrador extends Persona implements Serializable {

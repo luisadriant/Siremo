@@ -17,6 +17,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Esta clase es la entidad Vestiementa que contiene los getters y setters.
+ * @author root
+ */
 @Entity
 @Table(name="sir_vestimenta")
 public class Vestimenta implements Serializable {
