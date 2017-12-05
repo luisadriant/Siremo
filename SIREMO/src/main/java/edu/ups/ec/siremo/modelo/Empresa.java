@@ -1,4 +1,4 @@
-package modelo;
+package edu.ups.ec.siremo.modelo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,7 +14,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Esta clase es la entidad Empresa que contiene los getters y setters.
@@ -38,6 +40,8 @@ public class Empresa implements Serializable{
 	private String descripcion;
 	
 	@Column(name="emp_ruc")
+    @Size(min = 10, max = 15)
+    @Digits(fraction = 0, integer = 15)
 	@NotNull
 	private String ruc;
 	

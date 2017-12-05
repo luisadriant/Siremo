@@ -8,6 +8,7 @@
 <ui:define name="contenido">
 <body> 
 <h:form>
+<h:messages globalOnly="true"/>
 	<h:outputText value="No hay registros" rendered="#{empty usuarioControlador.usuarios}"/>
 	<h:dataTable value="#{usuarioControlador.usuarios}" var="usuario" rendered="#{not empty usuarioControlador.usuarios}">
 		<h:column> <f:facet name="header"> ID </f:facet> #{usuario.id} </h:column>

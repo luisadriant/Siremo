@@ -1,4 +1,4 @@
-package edu.ups.ec.siremo.controladores;
+package edu.ups.ec.siremo.controlador;
 
 import java.util.ArrayList;
 
