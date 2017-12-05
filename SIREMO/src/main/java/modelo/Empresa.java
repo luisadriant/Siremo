@@ -16,6 +16,10 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Esta clase es la entidad Empresa que contiene los getters y setters.
+ * @author root
+ */
 @Entity
 @Table(name="sir_empresa", uniqueConstraints = @UniqueConstraint(columnNames = "emp_ruc"))
 public class Empresa implements Serializable{

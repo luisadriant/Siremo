@@ -4,7 +4,11 @@ import java.util.Map;
 /*import org.jpl7.JPLException;
 import org.jpl7.Query;
 import org.jpl7.Term;*/
-
+/**
+ * Esta clase nos sirve para la conexion con Swi-Prolog
+ * @author root
+ *
+ */
 public class PrologTest {
 	
 	/*public String preguntasTest(String query) {

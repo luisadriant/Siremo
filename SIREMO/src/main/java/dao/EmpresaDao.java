@@ -10,13 +10,18 @@ import javax.persistence.PersistenceContextType;
 import javax.persistence.Query;
 import modelo.Empresa;
 
+/**
+ * Esta clase nos sirve para realizar todos los metodos crud y poder interactuar con la BD
+ * @author root
+ */
 @Stateless
 public class EmpresaDao {
 	
+	//llamamos al entity manager el cual nos permite la conexion con la BD y poder realizar las persistencias
 	@Inject
-	// @PersistenceContext(type = PersistenceContextType.EXTENDED)
 	private EntityManager EM;
 	
+	//este metodo nos permite guardar la persistencia, en caso de que exista actualiza sus datos
 	public void Guardar(Empresa e) {
 		Empresa empresa=Leer(e.getId());
 		if(empresa==null)
@@ -29,18 +34,18 @@ public class EmpresaDao {
 		EM.persist(e);
 	}
 	public void Actualizar(Empresa e) {
-		System.out.println("LLEGA AL METODO DE ACTULIZAR");
-		//System.out.println(e.getVestimentas().get(0).getMarca().getNombre());
 		EM.merge(e);
 	}
 	public void Borrar(int id) {
 		EM.remove(Leer(id));
 	}
+	//este metodo nos sirve para buscar una Empresa en base a un id
 	public Empresa Leer(int id) {
 		Empresa empresa = EM.find(Empresa.class, id);
 		return empresa;
 	}
-	//metodo de lista
+	
+	//Este metodo nos sirve para hacer un select y obtener todo las empresas
 	public List<Empresa> listadoempresas() {
 		String  jpql = "SELECT e FROM Empresa e";
 		Query query = EM.createQuery(jpql, Empresa.class);

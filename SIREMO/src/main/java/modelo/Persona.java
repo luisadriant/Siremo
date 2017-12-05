@@ -14,6 +14,10 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
 
+/**
+ * Esta clase es la entidad Persona que contiene los getters y setters.
+ * @author root
+ */
 @Entity
 @Table(name="sir_persona", uniqueConstraints = @UniqueConstraint(columnNames = "per_nombreusuario"))
 public class Persona implements Serializable{

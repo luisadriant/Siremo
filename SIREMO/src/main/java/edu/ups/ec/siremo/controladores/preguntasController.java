@@ -12,14 +12,23 @@ import javax.inject.Inject;
 //import org.jpl7.Query;
 
 import edu.ups.ec.siremo.SE.PrologTest;
+import edu.ups.ec.siremo.util.ErrorsController;
 
 
 
-
+/**
+ * Esta clase sirve para enlazar la vista del archivo xhtml con el controlador del Test 
+ * @author root
+ */
 @ManagedBean
 @RequestScoped
 public class preguntasController {
 
+	// Instanciamos la clase que controla los errores con su respectivo inject.
+    ErrorsController error = new ErrorsController();
+	@Inject
+    private FacesContext facesContext;
+		
 	private String respuesta1="";
 	private String respuesta2="";
 	private String respuesta3="";
@@ -33,9 +42,6 @@ public class preguntasController {
 	private String respuesta11="";
 	private String respuesta12="";
 	private String respuesta13="";
-	
-	@Inject
-    private FacesContext facesContext;
 	
 	
 	@PostConstruct
@@ -211,15 +217,13 @@ public class preguntasController {
 		}
 		
 	}
-	
-	
-
 
 	public String calcularEstilo() {
 		
 		boolean resValidacion = validarRespuestasContes();
-		System.out.println("ALV "+resValidacion);
+		System.out.println(" Constea todas las preguntas ? ="+resValidacion);
 		
+		//si contesta todas las preguntas del test envia ha sacar el resultado del estilo 
 		if(resValidacion) {
 			//sacarEstiloProlog();
 		}
@@ -227,7 +231,7 @@ public class preguntasController {
 		try {
 
 		}catch (Exception e) {
-		String errorMessage = getRootErrorMessage(e);
+		String errorMessage = error.getRootErrorMessage(e);
 	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
 	    facesContext.addMessage(null, m);
 	    
@@ -239,8 +243,6 @@ public class preguntasController {
 	
 	public boolean validarRespuestasContes() {
 		
-		System.out.println("R1 ="+respuesta1+" R2="+respuesta2+" R3="+respuesta3);
-		
 		if(!respuesta1.equals("")&&!respuesta2.equals("")&&!respuesta3.equals("")&&!respuesta4.equals("")&&
 				!respuesta5.equals("")&&!respuesta6.equals("")&&!respuesta7.equals("")&&!respuesta8.equals("")&&
 				!respuesta9.equals("")&&!respuesta10.equals("")&&!respuesta11.equals("")&&!respuesta12.equals("")&&
@@ -251,214 +253,6 @@ public class preguntasController {
 		}
 	}
 	
-	/*public void sacarEstiloProlog() {
-		
-		Query q = new Query("consult('basedeconocimiento.pl').");
-		if(q.hasSolution()) {
-			System.out.println("Cargada");
-		}else {
-			System.out.println("Error, no se pudo cargar la base.");
-		}
-		
-		System.out.println("Ease.");
-		
-		String aux="0,0,0";
-		
-		for (int i = 0; i < 13; i++) {
-			System.out.println("VA A SACAR EL PINCHE ESTILOS ");
-			
-			PrologTest test = new PrologTest();
-			//aux=test.preguntasTest("contadorVotos("+(i+1)+",1,"+aux+",AuxRe,AuxVa,AuxPu).");
-			System.out.println("mm "+aux);
-				
-		}
-		
-	}*/
-	
-//	public String pregunta2() {
-//		
-//		System.out.println("ALV");
-//		try {
-//
-//		}catch (Exception e) {
-//		String errorMessage = getRootErrorMessage(e);
-//	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
-//	    facesContext.addMessage(null, m);
-//	    
-//	    
-//		}
-//		
-//		return "#pregunta_3";
-//	}
-//	public String pregunta3() {
-//		
-//		System.out.println("ALV");
-//		try {
-//
-//		}catch (Exception e) {
-//		String errorMessage = getRootErrorMessage(e);
-//	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
-//	    facesContext.addMessage(null, m);
-//	    
-//	    
-//		}
-//		
-//		return "#pregunta_3";
-//	}
-//	public String pregunta4() {
-//		
-//		System.out.println("ALV");
-//		try {
-//
-//		}catch (Exception e) {
-//		String errorMessage = getRootErrorMessage(e);
-//	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
-//	    facesContext.addMessage(null, m);
-//	    
-//	    
-//		}
-//		
-//		return "#pregunta_5";
-//	}
-//	public String pregunta6() {
-//		
-//		System.out.println("ALV");
-//		try {
-//
-//		}catch (Exception e) {
-//		String errorMessage = getRootErrorMessage(e);
-//	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
-//	    facesContext.addMessage(null, m);
-//	    
-//	    
-//		}
-//		
-//		return "#pregunta_7";
-//	}
-//	public String pregunta7() {
-//		
-//		System.out.println("ALV");
-//		try {
-//
-//		}catch (Exception e) {
-//		String errorMessage = getRootErrorMessage(e);
-//	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
-//	    facesContext.addMessage(null, m);
-//	    
-//	    
-//		}
-//		
-//		return "#pregunta_8";
-//	}
-//	public String pregunta8() {
-//		
-//		System.out.println("ALV");
-//		try {
-//
-//		}catch (Exception e) {
-//		String errorMessage = getRootErrorMessage(e);
-//	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
-//	    facesContext.addMessage(null, m);
-//	    
-//	    
-//		}
-//		
-//		return "#pregunta_9";
-//	}
-//	public String pregunta9() {
-//		
-//		System.out.println("ALV");
-//		try {
-//
-//		}catch (Exception e) {
-//		String errorMessage = getRootErrorMessage(e);
-//	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
-//	    facesContext.addMessage(null, m);
-//	    
-//	    
-//		}
-//		
-//		return "#pregunta_10";
-//	}
-//	public String pregunta10() {
-//		
-//		System.out.println("ALV");
-//		try {
-//
-//		}catch (Exception e) {
-//		String errorMessage = getRootErrorMessage(e);
-//	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
-//	    facesContext.addMessage(null, m);
-//	    
-//	    
-//		}
-//		
-//		return "#pregunta_11";
-//	}
-//	public String pregunta11() {
-//		
-//		System.out.println("ALV");
-//		try {
-//
-//		}catch (Exception e) {
-//		String errorMessage = getRootErrorMessage(e);
-//	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
-//	    facesContext.addMessage(null, m);
-//	    
-//	    
-//		}
-//		
-//		return "#pregunta_12";
-//	}
-//	public String pregunta12() {
-//		
-//		System.out.println("ALV");
-//		try {
-//
-//		}catch (Exception e) {
-//		String errorMessage = getRootErrorMessage(e);
-//	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
-//	    facesContext.addMessage(null, m);
-//	    
-//	    
-//		}
-//		
-//		return "#pregunta_13";
-//	}
-//	public String pregunta13() {
-//		
-//		System.out.println("ALV");
-//		try {
-//
-//		}catch (Exception e) {
-//		String errorMessage = getRootErrorMessage(e);
-//	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
-//	    facesContext.addMessage(null, m);
-//	    
-//	    
-//		}
-//		
-//		return "#respuesta";
-//	}
 
-	private String getRootErrorMessage(Exception e) {
-        // Default to general error message that registration failed.
-        String errorMessage = "Registration failed. See server log for more information";
-        if (e == null) {
-            // This shouldn't happen, but return the default messages
-            return errorMessage;
-        }
-
-        // Start with the exception and recurse to find the root cause
-        Throwable t = e;
-        while (t != null) {
-            // Get the message from the Throwable class instance
-            errorMessage = t.getLocalizedMessage();
-            t = t.getCause();
-        }
-        // This is the root cause message
-        return errorMessage;
-    }
-	
 	
 }
