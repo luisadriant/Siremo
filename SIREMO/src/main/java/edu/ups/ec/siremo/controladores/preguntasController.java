@@ -15,6 +15,7 @@ import edu.ups.ec.siremo.SE.PrologTest;
 
 
 
+
 @ManagedBean
 @RequestScoped
 public class preguntasController {
