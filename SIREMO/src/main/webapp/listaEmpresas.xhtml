@@ -15,14 +15,13 @@
 		<h:column> <f:facet name="header"> RUC </f:facet> #{empresa.ruc} </h:column>
 		<h:column> <f:facet name="header"> DIRECCION </f:facet> #{empresa.direccion} </h:column>
 		<h:column> <f:facet name="header"> EDITAR </f:facet> 
-		<h:commandButton action="#{empresaControlador.loadDatoseditar(empresa.id)}" value="Editar" />
 		<a href="editarEmpresa.xhtml?id=#{empresa.id}"> editar </a>
 		</h:column>
 		<h:column> <f:facet name="header"> ELIMINAR </f:facet> 
 		<h:commandButton action="#{empresaControlador.Eliminar(empresa.id)}" value="Eliminar" />
 		</h:column>
 	</h:dataTable>
-	<h:commandButton action="editarAdministrador" value="Crear Empresa" />
+	<h:commandButton action="listaAdministrador" value="Listado de Administradores" inmediate="true"/>
 </h:form>
 </body> 
 </html>

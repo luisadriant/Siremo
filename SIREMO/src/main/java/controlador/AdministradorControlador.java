@@ -60,7 +60,7 @@ public class AdministradorControlador {
 		 System.out.println("hola");
 		 ADAO.Guardar(administrador);
 		 loadAdministradores();
-		 return null;
+		 return "listaAdministrador";
 	}
 	public String Eliminar(int id) {
 		ADAO.Borrar(id);

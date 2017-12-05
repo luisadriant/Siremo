@@ -52,7 +52,7 @@ public class UsuarioControlador {
 		 System.out.println("hola");
 		 UDAO.Guardar(usuario);
 		 loadUsuarios();
-		 return null;
+		 return "listaUsuario";
 	}
 	public String Eliminar(int id) {
 		UDAO.Borrar(id);
