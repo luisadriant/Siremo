@@ -1,3 +1,4 @@
 # Siremo
 Sistema Recomendador de Moda y Estilo
-![alt text](https://raw.githubusercontent.com/luisadriant/Siremo/diagrama.png)
+
+![alt text](https://github.com/luisadriant/Siremo/blob/master/diagrama.png)
