@@ -23,7 +23,9 @@ public class Marca implements Serializable {
 	private String nombre;
 	
 	public int getId() {
+		System.out.println("Boris ");
 		return id;
+		//get del id de la marca
 	}
 	public void setId(int id) {
 		this.id = id;
