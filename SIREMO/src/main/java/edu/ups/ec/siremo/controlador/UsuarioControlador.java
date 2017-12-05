@@ -1,4 +1,4 @@
-package controlador;
+package edu.ups.ec.siremo.controlador;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import dao.UsuarioDAO;
+import edu.ups.ec.siremo.dao.UsuarioDAO;
+import edu.ups.ec.siremo.modelo.Usuario;
 import edu.ups.ec.siremo.util.ErrorsController;
-import modelo.Usuario;
 
 /**
  * Esta clase sirve para enlazar la vista del archivo xhtml con el controlador del usuario 

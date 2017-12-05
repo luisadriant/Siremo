@@ -1,4 +1,4 @@
-package dao;
+package edu.ups.ec.siremo.dao;
 
 import java.util.List;
 
@@ -6,7 +6,8 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import modelo.Marca;
+
+import edu.ups.ec.siremo.modelo.Marca;
 
 /**
  * Esta clase nos sirve para realizar todos los metodos crud y poder interactuar con la BD

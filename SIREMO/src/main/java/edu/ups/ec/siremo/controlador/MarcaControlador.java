@@ -1,4 +1,4 @@
-package controlador;
+package edu.ups.ec.siremo.controlador;
 
 import java.util.List;
 
@@ -9,10 +9,10 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import dao.MarcaDao;
+import edu.ups.ec.siremo.dao.MarcaDao;
+import edu.ups.ec.siremo.modelo.Marca;
+import edu.ups.ec.siremo.modelo.Usuario;
 import edu.ups.ec.siremo.util.ErrorsController;
-import modelo.Marca;
-import modelo.Usuario;
 
 /**
  * Esta clase sirve para enlazar la vista del archivo xhtml con el controlador de la Marca

@@ -1,4 +1,4 @@
-package controlador;
+package edu.ups.ec.siremo.controlador;
 
 import java.util.List;
 
@@ -9,10 +9,10 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import dao.AdministradorDAO;
+import edu.ups.ec.siremo.dao.AdministradorDAO;
+import edu.ups.ec.siremo.modelo.Administrador;
+import edu.ups.ec.siremo.modelo.Empresa;
 import edu.ups.ec.siremo.util.ErrorsController;
-import modelo.Administrador;
-import modelo.Empresa;
 
 /**
  * Esta clase sirve para enlazar la vista del archivo xhtml con el controlador del administrador 
