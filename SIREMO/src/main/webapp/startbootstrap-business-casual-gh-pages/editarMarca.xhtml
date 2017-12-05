@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+       template="editarMarcaT.xhtml"
+      > 
+<ui:define name="contenido">
+<h:head></h:head> 
+<f:metadata>
+<f:viewParam name="id" value="#{marcaControlador.id}"></f:viewParam>
+</f:metadata>
+<body> 
+<h:form>
+ <h:messages globalOnly="true"/>
+	<h:panelGrid columns="3">
+		
+		<h:outputLabel value="Nombre" for="nombre" class="text-heading"/>
+		<h:inputText value="#{marcaControlador.marca.nombre}" id="nombre" />
+		<h:message for="nombre"/>
+		
+	</h:panelGrid>
+		<h:commandButton action="#{marcaControlador.Guardar()}" value="Registrar" class="btn btn-secondary" />
+		<br />
+		<h:commandButton action="listarMarca" value="Listado de Marcas" inmediate="true" class="btn btn-secondary"/>
+</h:form>
+</body>
+</ui:define> 
+</ui:composition>
