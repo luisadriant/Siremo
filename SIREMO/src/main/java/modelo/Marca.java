@@ -24,6 +24,7 @@ public class Marca implements Serializable {
 	
 	public int getId() {
 		return id;
+		//get del id de la marca
 	}
 	public void setId(int id) {
 		this.id = id;
