@@ -23,6 +23,7 @@ public class Marca implements Serializable {
 	private String nombre;
 	
 	public int getId() {
+		System.out.println("Boris ");
 		return id;
 	}
 	public void setId(int id) {
