@@ -2,7 +2,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-    template="crearVestimentaT.xhtml">
+    template="crearUsuarioT.xhtml">
      
 	
 	<ui:define name="contenido">
@@ -10,11 +10,11 @@
  <h:messages globalOnly="true"/>
 	<h:panelGrid columns="3">
 		
-		<h:outputLabel value="Descripcion:" for="descripcion" class="text-heading"/>
+		<h:outputLabel value="Descripcioon:" for="descripcion" class="text-heading"/>
 		<h:inputText value="#{vestimentaControlador.vestimenta.descripcion}" id="descripcion" />
 		<h:message for="descripcion"/>
 		
-		<h:outputLabel value="Color:" for="color" class="text-heading"/>
+		<h:outputLabel value="Colorr:" for="color" class="text-heading"/>
 		<h:inputText value="#{vestimentaControlador.vestimenta.color}" id="color" />
 		<h:message for="color"/>
 		
@@ -25,7 +25,7 @@
 		<h:outputLabel value="Genero:" for="genero" class="text-heading"/>
 		<h:inputText value="#{vestimentaControlador.vestimenta.genero}" id="genero" />
 		<h:message for="genero"/>
-		
+		<br />
 		<h:outputLabel value="Precio:" for="precio" class="text-heading"/>
 		<h:inputText value="#{vestimentaControlador.vestimenta.precio}" id="precio" />
 		<h:message for="precio"/>

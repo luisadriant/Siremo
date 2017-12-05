@@ -3,10 +3,10 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      template="listaUsuarioT.xhtml"
+      template="crearUsuarioT.xhtml"
       > 
       <ui:define name="contenido">
-<body> 
+ 
 <h:form>
 
 	<h:outputText value="No hay registros" rendered="#{empty usuarioControlador.usuarios}" class="mb-4"/>
@@ -29,6 +29,6 @@
 	<h:commandButton action="crearUsuario" value="Crear Usuario" class="btn btn-secondary" />
 	
 </h:form>
-</body> 
+
 </ui:define> 
 </ui:composition>

@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
-
-
+ <h:head>
 
     <meta charset="utf-8"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
     <meta name="description" content=""></meta>
     <meta name="author" content=""></meta>
 
-    <title>Registro de Administradores</title>
+    <title>Crear Administración</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
@@ -22,7 +21,7 @@
     <!-- Custom styles for this template -->
     <link href="css/business-casual.css" rel="stylesheet"></link>
 
-
+  </h:head>
 
   <body>
 
@@ -36,7 +35,8 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-         <div class="collapse navbar-collapse" id="navbarResponsive">
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="indexBueno.xhtml">Inicio
@@ -44,7 +44,7 @@
               </a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="crearUsuario.xhtml">Registrarse</a>
+              <a class="nav-link text-uppercase text-expanded" href="crearUsuario.xhtml">Crear Usuario</a>
             </li>
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="crearAministrador.xhtml">Crear Admini</a>
@@ -52,16 +52,8 @@
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="crearMarca.xhtml">Crear una marca</a>
             </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="crearVestimenta.xhtml">Crear una Vestimenta</a>
-            </li>
-             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="editarAdministrador.xhtml">Editar admin</a>
-            </li>
-         	<li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="editarAdministrador.xhtml">Editar administrador</a>
-            </li>
-            </ul>
+            
+          </ul>
         </div>
       </div>
     </nav>
@@ -71,22 +63,24 @@
 	    <div class="container">
 	        <div class="collapse navbar-collapse" id="navbarResponsivee">
         		<ul class="navbar-nav mx-auto">
-					<li class="nav-item px-lg-4">
-	              	<a class="nav-link text-uppercase text-expanded" href="editarEmpresa.xhtml">Editar empresa</a>
-	            	</li>
+					
 	            	<li class="nav-item px-lg-4">
 	              	<a class="nav-link text-uppercase text-expanded" href="listaUsuario.xhtml">Lista de Usuarios</a>
 	            	</li>
 	            	<li class="nav-item px-lg-4">
-	              	<a class="nav-link text-uppercase text-expanded" href="editarEmpresa.xhtml">Votar</a>
+	              	<a class="nav-link text-uppercase text-expanded" href="listaUsuarioVotar.xhtml">Lista Votos</a>
 	            	</li>
-         		 </ul>
+	            	
+	            	<li class="nav-item px-lg-4">
+	              	<a class="nav-link text-uppercase text-expanded" href="listaEmpresas.xhtml">Lista Empresas</a>
+	            	</li>
+	            	
+	            	</ul>
         	</div>
 	    </div>
 	    
 	    
      </nav>
-
     <div class="container">
 
       <div class="bg-faded p-4 my-4">
