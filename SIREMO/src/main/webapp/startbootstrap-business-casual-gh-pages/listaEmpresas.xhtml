@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      template="listaEmpresasT.xhtml"
+      > 
+<ui:define name="contenido">
+<h:head></h:head> 
+<body> 
+<h:form>
+	<h:outputText value="No hay registros" rendered="#{empty empresaControlador.empresas}" class="mb-4"/>
+	<h:dataTable value="#{empresaControlador.empresas}" var="empresa" rendered="#{not empty empresaControlador.empresas}">
+		<h:column> <f:facet name="header" class="text-heading"> ID </f:facet> #{empresa.id} </h:column>
+		<h:column> <f:facet name="header" class="text-heading"> NOMBRE </f:facet> #{empresa.nombre} </h:column>
+		<h:column> <f:facet name="header" class="text-heading"> DESCRIPCION </f:facet> #{empresa.descripcion} </h:column>
+		<h:column> <f:facet name="header" class="text-heading"> RUC </f:facet> #{empresa.ruc} </h:column>
+		<h:column> <f:facet name="header" class="text-heading"> DIRECCION </f:facet> #{empresa.direccion} </h:column>
+		<h:column> <f:facet name="header" class="text-heading"> EDITAR </f:facet> 
+		<h:commandButton action="#{empresaControlador.loadDatoseditar(empresa.id)}" value="Editar" />
+		<a href="editarEmpresa.xhtml?id=#{empresa.id}"> editar </a>
+		</h:column>
+		<h:column> <f:facet name="header"> ELIMINAR </f:facet> 
+		<h:commandButton action="#{empresaControlador.Eliminar(empresa.id)}" value="Eliminar" class="btn btn-secondary" />
+		</h:column>
+	</h:dataTable>
+	<h:commandButton action="editarAdministrador" value="Crear Empresa" class="btn btn-secondary" />
+</h:form>
+</body> 
+</ui:define> 
+</ui:composition>
