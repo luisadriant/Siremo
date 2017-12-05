@@ -1,4 +1,4 @@
-package modelo;
+package edu.ups.ec.siremo.modelo;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,7 +10,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 
@@ -29,16 +32,20 @@ public class Persona implements Serializable{
 	
 	@Column(name="per_nombres")
 	@NotNull
+	@Pattern(regexp = "[^0-9]*", message = "no contiene numeros")
 	private String nombres;
 	
 	@Column(name="per_apellidos")
 	@NotNull
+	@Pattern(regexp = "[^0-9]*", message = "no contiene numeros")
 	private String apellidos;
 	
 	@Column(name="per_nombreusuario")
 	@NotNull
 	private String nombreusuario;
 	
+    @Size(min = 7, max = 15)
+    @Digits(fraction = 0, integer = 15)
 	@Column(name="per_telefono", length=15)
 	private String Telefono;
 	

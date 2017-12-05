@@ -1,4 +1,4 @@
-package dao;
+package edu.ups.ec.siremo.dao;
 
 import java.util.List;
 
@@ -8,7 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
 import javax.persistence.Query;
-import modelo.Empresa;
+
+import edu.ups.ec.siremo.modelo.Empresa;
 
 /**
  * Esta clase nos sirve para realizar todos los metodos crud y poder interactuar con la BD

@@ -1,4 +1,4 @@
-package modelo;
+package edu.ups.ec.siremo.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

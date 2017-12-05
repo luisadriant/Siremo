@@ -1,4 +1,4 @@
-package controlador;
+package edu.ups.ec.siremo.controlador;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,15 +14,12 @@ import javax.faces.model.SelectItem;
 
 import javax.inject.Inject;
 
-import dao.UsuarioDAO;
-import dao.VestimentaDao;
-
+import edu.ups.ec.siremo.dao.UsuarioDAO;
+import edu.ups.ec.siremo.dao.VestimentaDao;
+import edu.ups.ec.siremo.modelo.Usuario;
+import edu.ups.ec.siremo.modelo.Vestimenta;
+import edu.ups.ec.siremo.modelo.Votos;
 import edu.ups.ec.siremo.util.ErrorsController;
-
-import modelo.Usuario;
-
-import modelo.Vestimenta;
-import modelo.Votos;
 
 /**
  * Esta clase sirve para enlazar la vista del archivo xhtml con el controlador de la vestimenta 
