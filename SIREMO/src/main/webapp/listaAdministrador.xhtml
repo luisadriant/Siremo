@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+	<h:outputText value="No hay registros" rendered="#{empty administradorControlador.administradores}"/>
+	<h:dataTable value="#{administradorControlador.administradores}" var="administrador" rendered="#{not empty administradorControlador.administradores}">
+		<h:column> <f:facet name="header"> ID </f:facet> #{administrador.id} </h:column>
+		<h:column> <f:facet name="header"> NOMBRES </f:facet> #{administrador.nombres} </h:column>
+		<h:column> <f:facet name="header"> APELLIDOS </f:facet> #{administrador.apellidos} </h:column>
+		<h:column> <f:facet name="header"> TELEFONO </f:facet> #{administrador.telefono} </h:column>
+		<h:column> <f:facet name="header"> EMAIL </f:facet> #{administrador.email} </h:column>
+		<h:column> <f:facet name="header"> FECHA NACIMIENTO </f:facet> #{administrador.fechanacimiento} </h:column>
+		<h:column> <f:facet name="header"> NOMBRE USUARIO </f:facet> #{administrador.nombreusuario} </h:column>
+		<h:column> <f:facet name="header"> PASS </f:facet> #{administrador.contrasenia} </h:column>
+		<h:column> <f:facet name="header"> EDITAR </f:facet> 
+		<h:commandButton action="#{administradorControlador.loadDatoseditar(administrador.id)}" value="Editar" />
+		<a href="editarAdministrador.xhtml?id=#{administrador.id}"> editar </a>
+		</h:column>
+		<h:column> <f:facet name="header"> ELIMINAR </f:facet> 
+		<h:commandButton action="#{administradorControlador.Eliminar(administrador.id)}" value="Eliminar" />
+		</h:column>
+	</h:dataTable>
+	<h:commandButton action="cearAdministrador" value="Crear Administrador" />
+
+</h:form>
+</body> 
+</html>
