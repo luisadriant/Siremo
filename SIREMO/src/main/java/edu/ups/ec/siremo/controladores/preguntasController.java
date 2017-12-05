@@ -9,7 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-//import org.jpl7.Query;
+import org.jpl7.Query;
 
 import edu.ups.ec.siremo.SE.PrologTest;
 
@@ -221,7 +221,7 @@ public class preguntasController {
 		System.out.println("ALV "+resValidacion);
 		
 		if(resValidacion) {
-			//sacarEstiloProlog();
+			sacarEstiloProlog();
 		}
 		
 		try {
@@ -251,7 +251,7 @@ public class preguntasController {
 		}
 	}
 	
-	/*public void sacarEstiloProlog() {
+	public void sacarEstiloProlog() {
 		
 		Query q = new Query("consult('basedeconocimiento.pl').");
 		if(q.hasSolution()) {
@@ -268,12 +268,12 @@ public class preguntasController {
 			System.out.println("VA A SACAR EL PINCHE ESTILOS ");
 			
 			PrologTest test = new PrologTest();
-			//aux=test.preguntasTest("contadorVotos("+(i+1)+",1,"+aux+",AuxRe,AuxVa,AuxPu).");
+			aux=test.preguntasTest("contadorVotos("+(i+1)+",1,"+aux+",AuxRe,AuxVa,AuxPu).");
 			System.out.println("mm "+aux);
 				
 		}
 		
-	}*/
+	}
 	
 //	public String pregunta2() {
 //		

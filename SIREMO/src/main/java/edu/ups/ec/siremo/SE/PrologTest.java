@@ -1,13 +1,13 @@
 package edu.ups.ec.siremo.SE;
 import java.util.Map;
 
-/*import org.jpl7.JPLException;
+import org.jpl7.JPLException;
 import org.jpl7.Query;
-import org.jpl7.Term;*/
+import org.jpl7.Term;
 
 public class PrologTest {
 	
-	/*public String preguntasTest(String query) {
+	public String preguntasTest(String query) {
 		String respuesta="";
 
   		Query q = new Query("consult('basedeconocimiento.pl')");
@@ -54,6 +54,6 @@ public class PrologTest {
 		}
 		
 		return caracter;
-	}*/
+	}
 	
 }
