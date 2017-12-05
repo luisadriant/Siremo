@@ -6,7 +6,7 @@
       template="listaAdministradorT.xhtml"
       > 
 <ui:define name="contenido">
-<h:head></h:head> 
+
 <body> 
 <h:form>
 	<h:outputText value="No hay registros" rendered="#{empty administradorControlador.administradores}" class="mb-4"/>
@@ -20,16 +20,16 @@
 		<h:column> <f:facet name="header" class="text-heading"> NOMBRE USUARIO </f:facet> #{administrador.nombreusuario} </h:column>
 		<h:column> <f:facet name="header" class="text-heading"> PASS </f:facet> #{administrador.contrasenia} </h:column>
 		<h:column> <f:facet name="header" class="text-heading"> EDITAR </f:facet> 
-		<h:commandButton action="#{administradorControlador.loadDatoseditar(administrador.id)}" value="Editar" />
 		<a href="editarAdministrador.xhtml?id=#{administrador.id}"> editar </a>
 		</h:column>
 		<h:column> <f:facet name="header"> ELIMINAR </f:facet> 
 		<h:commandButton action="#{administradorControlador.Eliminar(administrador.id)}" value="Eliminar" class="btn btn-secondary" />
 		</h:column>
 	</h:dataTable>
-	<h:commandButton action="cearAdministrador" value="Crear Administrador" class="btn btn-secondary"/>
+	<h:commandButton action="cearAdministrador" value="Crear Administrador" class="btn btn-secondary" />
 
 </h:form>
 </body> 
+ 
 </ui:define> 
 </ui:composition>

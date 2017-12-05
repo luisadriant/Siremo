@@ -6,9 +6,9 @@
       template="listaUsuarioT.xhtml"
       > 
       <ui:define name="contenido">
-<h:head></h:head> 
 <body> 
 <h:form>
+
 	<h:outputText value="No hay registros" rendered="#{empty usuarioControlador.usuarios}" class="mb-4"/>
 	<h:dataTable value="#{usuarioControlador.usuarios}" var="usuario" rendered="#{not empty usuarioControlador.usuarios}">
 		<h:column> <f:facet name="header" class="text-heading"> ID </f:facet> #{usuario.id} </h:column>
@@ -20,15 +20,14 @@
 		<h:column> <f:facet name="header" class="text-heading"> NOMBRE USUARIO </f:facet> #{usuario.nombreusuario} </h:column>
 		<h:column> <f:facet name="header" class="text-heading"> PASS </f:facet> #{usuario.contrasenia} </h:column>
 		<h:column> <f:facet name="header" class="text-heading"> EDITAR </f:facet> 
-		<h:commandButton action="#{usuarioControlador.loadDatoseditar(usuario.id)}" value="Editar"  class="btn btn-secondary"/>
 		<a href="editarUsuario.xhtml?id=#{usuario.id}"> editar </a>
 		</h:column>
 		<h:column> <f:facet name="header"> ELIMINAR </f:facet> 
-		<h:commandButton action="#{usuarioControlador.Eliminar(usuario.id)}" value="Eliminar" class="btn btn-secondary"/>
+		<h:commandButton action="#{usuarioControlador.Eliminar(usuario.id)}" value="Eliminar" class="btn btn-secondary" />
 		</h:column>
 	</h:dataTable>
-	<h:commandButton action="crearUsuario" value="Crear Usuario" class="btn btn-secondary"/>
-
+	<h:commandButton action="crearUsuario" value="Crear Usuario" class="btn btn-secondary" />
+	
 </h:form>
 </body> 
 </ui:define> 

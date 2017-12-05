@@ -1,10 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
-
-<h:head></h:head> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      template="listaEmpresasT.xhtml"
+      > 
+<ui:define name="contenido">
 <body> 
 <h:form>
 	<h:outputText value="No hay registros" rendered="#{empty usuarioControlador.usuarios}"/>
@@ -28,4 +29,5 @@
 
 </h:form>
 </body> 
-</html>
+</ui:define> 
+</ui:composition>
