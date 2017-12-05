@@ -76,7 +76,7 @@ public class AdministradorControlador {
 		 try {	
 		 ADAO.Guardar(administrador);
 		 loadAdministradores();
-			
+
 		 }catch (Exception e) {
 			String errorMessage = error.getRootErrorMessage(e);
 		    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
@@ -84,7 +84,8 @@ public class AdministradorControlador {
 		    
 		    
 			}
-		 return null;
+		 return "listaAdministrador";
+
 	}
 	//este metodo nos sirve para eliminar un Administrador y a la vez mostra en pantalla los administradores que sobran
 	public String Eliminar(int id) {

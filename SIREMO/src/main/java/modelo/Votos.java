@@ -25,7 +25,7 @@ public class Votos {
 	@Column(name="vot_voto")
 	private int voto;
 	
-	/*@ManyToOne
+	@ManyToOne
 	@JoinColumn(name="vot_per_id", referencedColumnName="per_id")
 	private Usuario usuario;
 
@@ -37,7 +37,7 @@ public class Votos {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-*/
+
 	public int getId() {
 		return id;
 	}

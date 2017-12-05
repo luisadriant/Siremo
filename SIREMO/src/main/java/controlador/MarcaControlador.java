@@ -75,13 +75,14 @@ public class MarcaControlador {
 		try {
 		 MDAO.Guardar(marca);
 		 loadMarcas();
-	
+
 		}catch (Exception e) {
 		String errorMessage = error.getRootErrorMessage(e);
 	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
 	    facesContext.addMessage(null, m);
 		}
-		 return null;
+		 return "listarMarca";
+
 	}
 	//este metodo nos sirve para eliminar una Marca y a la vez mostra en pantalla las marcas que sobran
 	public String Eliminar(int id) {

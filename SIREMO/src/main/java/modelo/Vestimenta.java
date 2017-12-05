@@ -14,6 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 
@@ -63,10 +64,17 @@ public class Vestimenta implements Serializable {
 	@NotNull
 	private String imagen;
 	
+	@Transient
+	private int id_marca=0;
 	
-	/*@ManyToOne
+	@Transient
+	private int voto=0;
+	
+	
+	
+	@ManyToOne
 	@JoinColumn(name="ves_mar_id", referencedColumnName="mar_id")
-	private Marca marca;*/
+	private Marca marca;
 	
 	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
 	@JoinColumn(name="vot_ves_id", referencedColumnName="ves_id")
@@ -76,6 +84,22 @@ public class Vestimenta implements Serializable {
 	private List<Usuario> usuarios;
 	
 	
+	public int getVoto() {
+		return voto;
+	}
+
+	public void setVoto(int voto) {
+		this.voto = voto;
+	}
+
+	public int getId_marca() {
+		return id_marca;
+	}
+
+	public void setId_marca(int id_marca) {
+		this.id_marca = id_marca;
+	}
+
 	public List<Usuario> getUsuarios() {
 		return usuarios;
 	}
@@ -93,14 +117,14 @@ public class Vestimenta implements Serializable {
 	}
 
 	
-	/*
+	
 	public Marca getMarca() {
 		return marca;
 	}
 
 	public void setMarca(Marca marca) {
 		this.marca = marca;
-	}*/
+	}
 
 	public int getId() {
 		return id;
@@ -173,9 +197,8 @@ public class Vestimenta implements Serializable {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-/*
 	public void addMarca(Marca marca) {
 		this.marca=marca;
-	}*/
+	}
 	
 }
