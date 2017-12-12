@@ -84,7 +84,7 @@ public class AdministradorControlador {
 		    
 		    
 			}
-		 return "listaAdministrador";
+		 return "";
 
 	}
 	//este metodo nos sirve para eliminar un Administrador y a la vez mostra en pantalla los administradores que sobran

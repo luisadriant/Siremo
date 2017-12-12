@@ -68,6 +68,8 @@ public class UsuarioControlador {
 		try { 
 		UDAO.Guardar(usuario);
 		 loadUsuarios();
+		 
+		 usuario = new Usuario();
 
 		
 	}catch (Exception e) {
@@ -75,7 +77,7 @@ public class UsuarioControlador {
 	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
 	    facesContext.addMessage(null, m);
 	}
-		 return "listaUsuario";
+		 return "";
 	}
 	//este metodo nos sirve para eliminar un Usuario y a la vez mostra en pantalla los usuarios que sobran 
 	public String Eliminar(int id) {
