@@ -77,8 +77,8 @@ ul.logo li.last{
 	display:inline-block;
 }
 .nav li a {
-	height:30px;
-	width:30px;
+	height:10px;
+	width:140px;
 	display: block;
 }
 .nav li a:hover {
@@ -168,16 +168,16 @@ ul.logo li.last{
 }
 /*------------end social simptip----------------*/
 .nav li:nth-child(1) a{
-	background: url(../images/img_sprite.png) -7px -9px;
+
 }
 .nav li:nth-child(2) a{
-	background: url(../images/img_sprite.png) -49px -8px;
+
 }
 .nav li:nth-child(3) a{
-	background: url(../images/img_sprite.png) -90px -9px;
+
 }
 .nav li:nth-child(4) a{
-	background: url(../images/img_sprite.png) -130px -8px;
+
 }
 .nav li:nth-child(5) a{
 	background: url(../images/img_sprite.png) -175px -9px;
