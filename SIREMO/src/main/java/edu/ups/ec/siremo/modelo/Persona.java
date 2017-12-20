@@ -54,6 +54,10 @@ public class Persona implements Serializable{
 	@Email
 	private String email;
 	
+	@Column(name="per_genero")
+	@NotNull
+	private String genero;
+	
 	@Column(name="per_contrasenia")
 	@NotNull
 	private String contrasenia;
@@ -64,6 +68,12 @@ public class Persona implements Serializable{
 	private Date fechanacimiento;
 	
 	
+	public String getGenero() {
+		return genero;
+	}
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
 	public Date getFechanacimiento() {
 		return fechanacimiento;
 	}
