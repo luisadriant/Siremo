@@ -43,6 +43,7 @@ public class VestimentaControlador {
 	private Vestimenta vestimenta;
 	//variables necesarias
 	private List<Vestimenta> vestimentas;
+	private List<Vestimenta> datosVesti;
 	private List<SelectItem> camposVotos;
 	private List<Votos> votos;
 	private int id;
@@ -148,11 +149,31 @@ public class VestimentaControlador {
 				 if(vestimentas.get(i).getVotos().get(j).getUsuario().getId()==usuario.getId()) {
 					 //System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++"+vestimentas.get(i).getVotos().get(j).getUsuario().getId());
 					 vestimentas.get(i).setVoto(vestimentas.get(i).getVotos().get(j).getVoto());
-				 }
+					 }
 				 }
 			 }
 		 }
+			}
+	public void cargarDatosVestimenta(int codUser, int codEmp){
+		datosVesti= VDAO.listadovestimentas();
+		loadDatoUsuario(id);
+		    for (int i = 0; i <datosVesti.size(); i++) {
+		    	if(codUser == 1 && codEmp ==3){
+		    	 datosVesti.get(i).getDescripcion();
+		    	 datosVesti.get(i).getColor();
+		    	 datosVesti.get(i).getEstilo();
+		    	 datosVesti.get(i).getGenero();
+		    		
+		    	}
+				
+			}
+		
+		
 	}
+	
+
+	
+	
 	//este metodo nos sirve para cargar la pagina y editar los datos de Vestimentas
 	public String loadDatoseditar(int id) {
 		vestimenta = VDAO.Leer(id);
@@ -171,6 +192,7 @@ public class VestimentaControlador {
 		camposVotos.add(new SelectItem("5","5"));
 		camposVotos.add(new SelectItem("0","0"));
 	}
+	
 	
 	
 }

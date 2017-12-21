@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      template="estilo.xhtml"
+      > 
+      
+       <ui:define name="contenido">
+       <h:form>
+         <a href="descripcionVestimenta_face.xhtml" class="movie__title">Ropa Hombre</a>
+         <p class="movie__time"><f:facet name="header">descripcion</f:facet>	#{vestimenta.descripcion}</p>
+	     <p class="movie__option"><a href="descripcionVestimenta_face.xhtml">Pantalón Hombre</a> | <a href="descripcionVestimenta_face.xhtml">Color cafe</a> | <a href="descripcionVestimenta_face.xhtml">Tubo</a></p>
+          <ul class="list_6">
+		<li><i class="icon1"> </i><p>30</p></li>
+		<li><i class="icon3"> </i><p>10</p></li>
+		<li>Rating :<p><img src="images/rating1.png" /></p></li>
+		<div class="clearfix"> </div>
+		   		</ul>
+       
+       </h:form> 
+	</ui:define>
+	<ui:define name="botonMiestilo">
+			<h:form>
+			<li> <span class="simptip-position-bottom simptip-movable" data-tooltip="Mi Estilo" > <a href="estilo_face.xhtml"> <img  src="images/miEstilo.png" class="img-responsive"/> </a></span></li>
+			</h:form>
+	</ui:define>
+</ui:composition>
