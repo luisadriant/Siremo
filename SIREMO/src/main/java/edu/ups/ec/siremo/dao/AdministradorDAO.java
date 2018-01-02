@@ -24,12 +24,16 @@ public class AdministradorDAO {
 	private EntityManager EM;
 	
 	//este metodo nos permite guardar la persistencia, en caso de que exista actualiza sus datos
-	public void Guardar(Administrador a) {
-		Administrador admin=Leer(a.getId());
-		if(admin==null)
+	public boolean Guardar(Administrador a) {
+		Administrador adm=Leer(a.getId());
+		if(adm==null && listadoadministradoresUN(a.getNombreusuario()).size()==0) {
 			Insertar(a);
-		else
+			return true;
+		}else if (adm!=null){
 			Actualizar(a);
+			return true;
+		}else
+			return false;
 	}
 	
 	public void Insertar(Administrador a) {
@@ -51,6 +55,23 @@ public class AdministradorDAO {
 		String  jpql = "SELECT a FROM Administrador a";
 		Query query = EM.createQuery(jpql, Administrador.class);
 		List<Administrador> listado = query.getResultList(); 
+		return listado;
+	}
+	//metodo para verificar la existencia de un usuario administrador
+	public List<Administrador> listadoadministradoresUN(String un) {
+		String  jpql = "SELECT a FROM Administrador a WHERE a.nombreusuario=:un";
+		Query query = EM.createQuery(jpql, Administrador.class);
+		query.setParameter("un", un);
+		List<Administrador> listado = query.getResultList(); 
+		return listado;
+	}
+	//metodo para verificar datos de logeo
+	public List<Administrador> listadoadministradoresLog(String un, String pass) {
+		String  jpql = "SELECT a FROM Administrador a WHERE a.nombreusuario=:un AND a.contrasenia=:pass";
+		Query query = EM.createQuery(jpql, Administrador.class);
+		query.setParameter("un", un);
+		query.setParameter("pass", pass);
+		List<Administrador> listado = query.getResultList();
 		return listado;
 	}
 }

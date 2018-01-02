@@ -1,0 +1,89 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+       template="principalAdmin.xhtml">
+	
+		<ui:define name="contenido">
+		
+		<h:form>
+		<h:messages globalOnly="true"/>
+		<h:outputText value="No hay registros" rendered="#{empty loginControlador.administrador.empresas}" />
+		<h:outputText value="No hay registros" rendered="#{empty loginControlador.loadDatosUsuarioL1(loginControlador.id)}" />
+		 <h:dataTable value="#{loginControlador.administrador.empresas}" var="empresa" rendered="#{not empty loginControlador.administrador.empresas}" columnClasses="columnWithWidth">			  
+			<h:column > 
+						<div class="col-md-10 grid_4">
+                            <div class="movie movie-test movie-test-dark movie-test-left">			  
+                                <div class="movie__images">
+                                    <a href="descripcionVestimenta.xhtml" class="movie-beta__link">
+                                        <img alt="" src="images/empresa.png" class="img-responsive"/>
+                                    </a>
+                                </div>
+								<div class="movie__info">
+                                    <a href="descripcionVestimenta.xhtml" class="movie__title">#{empresa.nombre}</a>
+                                    <h:panelGrid columns="1">		
+									 #{empresa.ruc}<br/>
+                                     #{empresa.descripcion}<br/>
+									 #{empresa.direccion}<br/>	
+									</h:panelGrid>
+									<h:panelGrid columns="1">	
+									<!-- <h:commandButton action="d"  outcome="crearEmpresa_face.xhtml?id=#{loginControlador.id}" value="Editar" class="btn btn-primary btn-block btn-flat"/> -->								
+									<h:button value="Editar" outcome="crearEmpresa_face.xhtml?id=#{loginControlador.id}" class="btn btn-primary btn-block btn-flat"/>
+									<h:commandButton action="#{empresaControlador.Eliminar(empresa.id)}" value="Eliminar" class="btn btn-primary btn-block btn-flat"/>
+									<h:button value="Administrar" outcome="misVestimentas_face.xhtml?id=#{empresa.id}" class="btn btn-primary btn-block btn-flat"/>
+									</h:panelGrid>
+                                 </div>
+                                <div class="clearfix"> </div>
+                            </div>
+						</div>
+			</h:column> 
+		</h:dataTable>	
+		</h:form>	
+		
+		<!--<f:metadata>
+			<f:viewParam name="id" value="#{sesionControlador.id}"></f:viewParam>
+		</f:metadata>
+	
+		        <h:form>
+		        <h:messages globalOnly="true"/>
+		        <h:outputText value="No hay registros" rendered="#{empty empresaControlador.empresas}"/>
+		    		<div class="col-md-10 grid_4">
+		    		  <div class="movie movie-test movie-test-dark movie-test-left">	
+                            <h:dataTable value="#{empresaControlador.empresas}" var="empresa" rendered="#{not empty empresaControlador.empresas}">			  
+    
+                          
+                                <h:column> 
+                                <div class="movie__images">
+                                    <a href="descripcionVestimenta.xhtml" class="movie-beta__link">
+                                        <img alt="" src="images/empresa.png" class="img-responsive"/>
+                                    </a>
+                                </div>
+                                </h:column>
+								<h:column> 
+									<div class="movie__info">
+                                    <a href="descripcionVestimenta.xhtml" class="movie__title">#{empresa.nombre}</a>
+                                    <h:panelGrid columns="1">
+                                    #{empresa.ruc}<br/>
+                                    #{empresa.descripcion}<br/>
+                                    #{empresa.direccion}<br/>
+									</h:panelGrid>
+                                	 </div>
+								</h:column>
+								
+								<h:column> 
+								<a href="crearEmpresa_face.xhtml?id=2"> editar </a>
+								<h:commandButton action="d" value="Editar" class="btn btn-primary btn-block btn-flat"/>								
+									<h:commandButton action="d" value="Eliminar" class="btn btn-primary btn-block btn-flat"/>									
+									<h:commandButton action="d" value="Administrar" class="btn btn-primary btn-block btn-flat"/>
+								</h:column> 	
+						
+					
+								</h:dataTable>	
+									</div>	
+								</div>
+						<div class="clearfix"> </div>
+				</h:form>	
+		-->
+		</ui:define>
+</ui:composition>

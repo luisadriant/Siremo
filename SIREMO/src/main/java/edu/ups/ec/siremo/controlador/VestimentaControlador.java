@@ -135,8 +135,8 @@ public class VestimentaControlador {
 	//este metodo nos sirve para eliminar una Vestimenta y a la vez mostra en pantalla las vestimentas que sobran
 	public String Eliminar(int id) {
 		VDAO.Borrar(id);
-		loadVestimentas();
-		return "listaUsuario";
+		//loadVestimentas();
+		return "misVestimentas_face";
 	}
 	//este metodo nos sirve para cargar los datos de todas las Vestimentas que existen en la BD
 	private void loadVestimentas() {
