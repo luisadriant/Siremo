@@ -57,12 +57,11 @@
       
       <div class="form-group has-feedback">
       	Contraseña:
-        <h:inputSecret value="#{administradorControlador.administrador.contrasenia}" id="pass" type="password" class="form-control" placeholder="Contraseña"/>
+        <h:inputText value="#{administradorControlador.administrador.contrasenia}" id="pass" type="password" class="form-control" placeholder="Contraseña"/>
 		<h:message for="pass"/>
-		
       </div>
       <div class="form-group has-feedback">
-      Repetir Contraseña:
+        Repetir Contraseña:
         <h:inputSecret value="#{administradorControlador.rcontrasenia}" id="rpass" type="password" class="form-control" placeholder="Contraseña"/>
 		<h:message for="rpass"/>
 
@@ -111,7 +110,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-        	<h:commandButton action="#{administradorControlador.Guardar2()}" value="Registrar" type="submit" class="btn btn-primary btn-block btn-flat"/>
+        	<h:commandButton action="#{administradorControlador.Guardar2()}" value="Guardar" type="submit" class="btn btn-primary btn-block btn-flat"/>
         </div>
         <!-- /.col -->
       </div>

@@ -1,5 +1,6 @@
 package edu.ups.ec.siremo.controlador;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
@@ -18,7 +19,7 @@ public class SesionControlador {
 	//instalcia del administrador
 	private Administrador administrador;
 	//id de un usuario
-	private int id;
+	private int id=2;
 	
 	//instanciamos en objeto de acceso a datos para poder injectar los metodos crud correspondiente al Usuario
 		@Inject
@@ -26,12 +27,20 @@ public class SesionControlador {
 	//instanciamos en objeto de acceso a datos para poder injectar los metodos crud correspondiente al Usuario
 		@Inject
 		private AdministradorDAO ADAO;
+		
+		@PostConstruct
+		public void init() {
+			usuario=new Usuario();
+			//loadDatosUsuarioL(id);
+		}
+		
+		
 		public int getId() {
 			return id;
 		}
 		public void setId(int id) {
 			this.id = id;
-			loadDatosUsuarioL(id);
+			//loadDatosUsuarioL(id);
 		}
 		
 		public Usuario getUsuario() {
@@ -50,7 +59,7 @@ public class SesionControlador {
 		public String loadDatosUsuarioL(int id) {
 			usuario = UDAO.Leer(id);
 			administrador=ADAO.Leer(id);
-			System.out.println(administrador.getApellidos()+"<<<<<<<<");
+			//System.out.println(administrador.getApellidos()+"<<<<<<<<");
 			return "";
 		}
 

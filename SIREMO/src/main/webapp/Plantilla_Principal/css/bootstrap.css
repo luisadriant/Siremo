@@ -5782,4 +5782,7 @@ button.close {
     display: none !important;
   }
 }
+.columnWithWidth {
+width: 1000px;
+}
 /*# sourceMappingURL=bootstrap.css.map */

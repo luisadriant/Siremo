@@ -6,7 +6,42 @@
        template="principalAdmin.xhtml">
 	
 		<ui:define name="contenido">
-		<f:metadata>
+		
+		<h:form>
+		<h:messages globalOnly="true"/>
+		<h:outputText value="No hay registros" rendered="#{empty loginControlador.administrador.empresas}" />
+		<h:outputText value="No hay registros" rendered="#{empty loginControlador.loadDatosUsuarioL1(loginControlador.id)}" />
+		 <h:dataTable value="#{loginControlador.administrador.empresas}" var="empresa" rendered="#{not empty loginControlador.administrador.empresas}" columnClasses="columnWithWidth">			  
+			<h:column > 
+						<div class="col-md-10 grid_4">
+                            <div class="movie movie-test movie-test-dark movie-test-left">			  
+                                <div class="movie__images">
+                                    <a href="descripcionVestimenta.xhtml" class="movie-beta__link">
+                                        <img alt="" src="images/empresa.png" class="img-responsive"/>
+                                    </a>
+                                </div>
+								<div class="movie__info">
+                                    <a href="descripcionVestimenta.xhtml" class="movie__title">#{empresa.nombre}</a>
+                                    <h:panelGrid columns="1">		
+									 #{empresa.ruc}<br/>
+                                     #{empresa.descripcion}<br/>
+									 #{empresa.direccion}<br/>	
+									</h:panelGrid>
+									<h:panelGrid columns="1">	
+									<!-- <h:commandButton action="d"  outcome="crearEmpresa_face.xhtml?id=#{loginControlador.id}" value="Editar" class="btn btn-primary btn-block btn-flat"/> -->								
+									<h:button value="Editar" outcome="crearEmpresa_face.xhtml?id=#{loginControlador.id}" class="btn btn-primary btn-block btn-flat"/>
+									<h:commandButton action="#{empresaControlador.Eliminar(empresa.id)}" value="Eliminar" class="btn btn-primary btn-block btn-flat"/>
+									<h:button value="Administrar" outcome="misVestimentas_face.xhtml?id=#{empresa.id}" class="btn btn-primary btn-block btn-flat"/>
+									</h:panelGrid>
+                                 </div>
+                                <div class="clearfix"> </div>
+                            </div>
+						</div>
+			</h:column> 
+		</h:dataTable>	
+		</h:form>	
+		
+		<!--<f:metadata>
 			<f:viewParam name="id" value="#{sesionControlador.id}"></f:viewParam>
 		</f:metadata>
 	
@@ -49,6 +84,6 @@
 								</div>
 						<div class="clearfix"> </div>
 				</h:form>	
-		
+		-->
 		</ui:define>
 </ui:composition>
