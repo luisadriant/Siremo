@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <ui:composition  xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
@@ -8,21 +8,181 @@
       
        <ui:define name="contenido">
        <h:form>
-         <a href="descripcionVestimenta_face.xhtml" class="movie__title">Ropa Hombre</a>
-         <p class="movie__time"><f:facet name="header">descripcion</f:facet>	#{vestimenta.descripcion}</p>
-	     <p class="movie__option"><a href="descripcionVestimenta_face.xhtml">Pantalón Hombre</a> | <a href="descripcionVestimenta_face.xhtml">Color cafe</a> | <a href="descripcionVestimenta_face.xhtml">Tubo</a></p>
-          <ul class="list_6">
-		<li><i class="icon1"> </i><p>30</p></li>
-		<li><i class="icon3"> </i><p>10</p></li>
-		<li>Rating :<p><img src="images/rating1.png" /></p></li>
-		<div class="clearfix"> </div>
-		   		</ul>
-       
-       </h:form> 
-	</ui:define>
-	<ui:define name="botonMiestilo">
-			<h:form>
-			<li> <span class="simptip-position-bottom simptip-movable" data-tooltip="Mi Estilo" > <a href="estilo_face.xhtml"> <img  src="images/miEstilo.png" class="img-responsive"/> </a></span></li>
+        
+      	       <div class="movie_top">
+
+
+
+<!--____________________________________fila 1 al lado izquierdo la imagen, la descripcion al lado derecho _____________________________-->
+	 <div class="col-md-6 grid_4">
+                            <div class="movie movie-test movie-test-dark movie-test-left">			  
+                                <div class="movie__images">
+                                    <a href="descripcionVestimenta_face.xhtml" class="movie-beta__link">
+                                        <img alt="" src="images/pnt2.1.jpg" class="img-responsive"/>
+                                    </a>
+                                </div>
+								<div class="movie__info">
+                                    <a href="descripcionVestimenta_face.xhtml" class="movie__title">Ropa Hombre </a>
+                                    <p class="movie__time">#{vestimentaControlador.vestimentas.get(0).descripcion}</p>
+									<p class="movie__option"><a href="descripcionVestimenta_face.xhtml">Color Cafe</a> | <a href="descripcionVestimenta_face.xhtml">Adidas</a> </p>
+                                    <ul class="list_6">
+						    			<li><i class="icon1"> </i><p>25</p></li>
+						    			<li><i class="icon3"> </i><p>3</p></li>
+						    			<li>Rating :<p><img src="images/rating1.png" /></p></li>
+						    			<div class="clearfix"> </div>
+			    					</ul>
+                                 </div>
+                                <div class="clearfix"> </div>
+                            </div>
+
+                         <!-- Movie variant with time -->
+						<!-- Movie variant with time -->
+                            <div class="movie movie-test movie-test-dark movie-test-left">
+                                <div class="movie__images">
+                                    <a href="descripcionVestimenta_face.xhtml" class="movie-beta__link">
+                                        <img alt="" src="images/zpt4.jpg" class="img-responsive"/>
+                                    </a>
+                                </div>
+                                <div class="movie__info">
+                                    <a href="descripcionVestimenta_face.xhtml" class="movie__title">Zapatos Mujer </a>
+                                    <p class="movie__time">Deportivos</p>
+									<p class="movie__option"><a href="descripcionVestimenta_face.xhtml">Color Lila</a> | <a href="descripcionVestimenta_face.xhtml">Nike</a> </p>
+                                    <ul class="list_6">
+						    			<li><i class="icon1"> </i><p>25</p></li>
+						    			<li><i class="icon3"> </i><p>3</p></li>
+						    			<li>Rating :<p><img src="images/rating1.png" /></p></li>
+						    			<div class="clearfix"> </div>
+			    					</ul>
+                                 </div>
+                                <div class="clearfix"> </div>
+                            </div>
+</div>
+
+		<div class="col-md-6 grid_4">
+                            <div class="movie movie-test movie-test-dark movie-test-left">
+                               <div class="movie__images">
+                                    <a href="descripcionVestimenta_face.xhtml" class="movie-beta__link">
+                                        <img alt="" src="images/ptn2.jpg" class="img-responsive"/>
+                                    </a>
+                                </div>
+                                <div class="movie__info">
+                                    <a href="descripcionVestimenta_face.xhtml" class="movie__title">Ropa Hombre</a>
+                                    <p class="movie__time">80 min</p>
+									<p class="movie__option"><a href="descripcionVestimenta_face.xhtml">lwknqfknj</a> | <a href="descripcionVestimenta_face.xhtml">Dolor sit</a> | <a href="descripcionVestimenta_face.xhtml">Drama</a></p>
+                                    <ul class="list_6">
+						    			<li><i class="icon1"> </i><p>2,548</p></li>
+						    			<li><i class="icon3"> </i><p>546</p></li>
+						    			<li>Rating : <p><img src="images/rating1.png" /></p></li>
+						    			<div class="clearfix"> </div>
+			    					</ul>
+                                 </div>
+                                 <div class="clearfix"> </div>
+                            </div>
+                            <div class="movie movie-test movie-test-dark movie-test-left">
+                               <div class="movie__images">
+                                    <a href="descripcionVestimenta_face.xhtml" class="movie-beta__link">
+                                        <img alt="" src="images/ch1.jpg" class="img-responsive" />
+                                    </a>
+                                </div>
+                                <div class="movie__info">
+                                    <a href="descripcionVestimenta_face.xhtml" class="movie__title">Ipsum3 (2015)  </a>
+                                    <p class="movie__time">80 min</p>
+									<p class="movie__option"><a href="descripcionVestimenta_face.xhtml">Imagen Ropa</a> | <a href="descripcionVestimenta_face.xhtml">Dolor sit</a> | <a href="descripcionVestimenta_face.xhtml">Drama</a></p>
+                                    <ul class="list_6">
+						    			<li><i class="icon1"> </i><p>2,548</p></li>
+						    			<li><i class="icon3"> </i><p>546</p></li>
+						    			<li>Rating :<p><img src="images/rating1.png" /></p></li>
+						    			<div class="clearfix"> </div>
+			    					</ul>
+                                 </div>
+                                 <div class="clearfix"> </div>
+                            </div>
+</div>
+<!--____________________________________fila 3 al lado izquierdo la imagen, la descripcion al lado derecho _____________________________-->
+		<div class="col-md-6 grid_4">
+                            <div class="movie movie-test movie-test-dark movie-test-right">
+                                <div class="movie__images">
+                                    <a href="descripcionVestimenta_face.xhtml" class="movie-beta__link">
+                                        <img alt="" src="images/vest.jpg" class="img-responsive" />
+                                    </a>
+                                </div>
+								<div class="movie__info">
+                                    <a href="descripcionVestimenta_face.xhtml" class="movie__title">Ipsum4 (2015)  </a>
+                                    <p class="movie__time">80 min</p>
+									<p class="movie__option"><a href="descripcionVestimenta_face.xhtml">Contray</a> | <a href="descripcionVestimenta_face.xhtml">Dolor sit</a> | <a href="descripcionVestimenta_face.xhtml">Drama</a></p>
+                                    <ul class="list_6">
+						    			<li><i class="icon1"> </i><p>2,548</p></li>
+						    			<li><i class="icon3"> </i><p>546</p></li>
+						    			<li>Rating : <p><img src="images/rating1.png"/></p></li>
+						    			<div class="clearfix"> </div>
+						    		</ul>
+                                 </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="movie movie-test movie-test-dark movie-test-right">
+                                <div class="movie__images">
+                                    <a href="descripcionVestimenta_face.xhtml" class="movie-beta__link">
+                                        <img alt="" src="images/gor1.jpg" class="img-responsive"/>
+                                    </a>
+                                </div>
+								<div class="movie__info">
+                                    <a href="descripcionVestimenta_face.xhtml" class="movie__title">Ipsum5 (2015)  </a>
+                                    <p class="movie__time">80 min</p>
+									<p class="movie__option"><a href="descripcionVestimenta_face.xhtml">Contray</a> | <a href="descripcionVestimenta_face.xhtml">Dolor sit</a> | <a href="descripcionVestimenta_face.xhtml">Drama</a></p>
+                                    <ul class="list_6">
+						    			<li><i class="icon1"> </i><p>2,548</p></li>
+						    			<li><i class="icon3"> </i><p>546</p></li>
+						    			<li>Rating : <p><img src="images/rating1.png" /></p></li>
+						    			<div class="clearfix"> </div>
+						    		</ul>
+                                 </div>
+                                <div class="clearfix"> </div>
+                            </div>
+</div>
+<!--____________________________________fila 4 al lado derecho la imagen, la descripcion al lado izquierdo _____________________________-->
+		<div class="col-md-6 grid_4">
+                            <div class="movie movie-test movie-test-dark movie-test-right">
+                               <div class="movie__images">
+                                    <a href="descripcionVestimenta_face.xhtml" class="movie-beta__link">
+                                        <img alt="" src="images/dep.jpg" class="img-responsive"/>
+                                    </a>
+                                </div>
+                                <div class="movie__info">
+                                    <a href="#" class="movie__title">Ipsum6 (2015)  </a>
+                                    <p class="movie__time">80 min</p>
+									<p class="movie__option"><a href="descripcionVestimenta_face.xhtml">Contray</a> | <a href="descripcionVestimenta_face.xhtml">Dolor sit</a> | <a href="descripcionVestimenta_face.xhtml">Drama</a></p>
+                                    <ul class="list_6">
+						    			<li><i class="icon1"> </i><p>2,548</p></li>
+						    			<li><i class="icon3"> </i><p>546</p></li>
+						    			<li>Rating : <p><img src="images/rating1.png" /></p></li>
+						    			<div class="clearfix"> </div>
+			    					</ul>
+                                 </div>
+                                 <div class="clearfix"> </div>
+                            </div>
+                            <div class="movie movie-test movie-test-dark movie-test-right">
+                               <div class="movie__images">
+                                    <a href="descripcionVestimenta_face.xhtml" class="movie-beta__link">
+                                        <img alt="" src="images/zapato.jpg" class="img-responsive" />
+                                    </a>
+                                </div>
+                                <div class="movie__info">
+                                    <a href="descripcionVestimenta_face.xhtml" class="movie__title">Ipsum7 (2015)  </a>
+                                    <p class="movie__time">80 min</p>
+									<p class="movie__option"><a href="descripcionVestimenta_face.xhtml">Contray</a> | <a href="descripcionVestimenta_face.xhtml">Dolor sit</a> | <a href="descripcionVestimenta_face.xhtml">Drama</a></p>
+                                    <ul class="list_6">
+						    			<li><i class="icon1"> </i><p>2,548</p></li>
+						    			<li><i class="icon3"> </i><p>546</p></li>
+						    			<li>Rating : <p><img src="images/rating1.png" /></p></li>
+						    			<div class="clearfix"> </div>
+			    					</ul>
+                                 </div>
+                                 <div class="clearfix"> </div>
+                            </div>   
+                              <div class="clearfix"> </div>      
+                         <!-- Movie variant with time -->
+                      </div>
+</div>	
 			</h:form>
 	</ui:define>
 </ui:composition>

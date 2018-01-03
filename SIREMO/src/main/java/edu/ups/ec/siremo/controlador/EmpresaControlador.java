@@ -189,4 +189,5 @@ public class EmpresaControlador {
 			 camposMarcas.add(new SelectItem(marcas.get(i).getId()+"",marcas.get(i).getNombre()+""));
 		 }
 	}
+	
 }

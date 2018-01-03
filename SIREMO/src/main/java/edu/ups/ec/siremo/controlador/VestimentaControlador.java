@@ -14,8 +14,10 @@ import javax.faces.model.SelectItem;
 
 import javax.inject.Inject;
 
+import edu.ups.ec.siremo.dao.EmpresaDao;
 import edu.ups.ec.siremo.dao.UsuarioDAO;
 import edu.ups.ec.siremo.dao.VestimentaDao;
+import edu.ups.ec.siremo.modelo.Empresa;
 import edu.ups.ec.siremo.modelo.Usuario;
 import edu.ups.ec.siremo.modelo.Vestimenta;
 import edu.ups.ec.siremo.modelo.Votos;
@@ -43,7 +45,6 @@ public class VestimentaControlador {
 	private Vestimenta vestimenta;
 	//variables necesarias
 	private List<Vestimenta> vestimentas;
-	private List<Vestimenta> datosVesti;
 	private List<SelectItem> camposVotos;
 	private List<Votos> votos;
 	private int id;
@@ -79,7 +80,7 @@ public class VestimentaControlador {
 	public void init() {
 		vestimenta=new Vestimenta();
 		usuario=new Usuario();
-		//loadVestimentas();
+		loadVestimentas();
 	}
 		
 	public Vestimenta getVestimenta() {
@@ -154,22 +155,23 @@ public class VestimentaControlador {
 			 }
 		 }
 			}
-	public void cargarDatosVestimenta(int codUser, int codEmp){
-		datosVesti= VDAO.listadovestimentas();
-		loadDatoUsuario(id);
-		    for (int i = 0; i <datosVesti.size(); i++) {
-		    	if(codUser == 1 && codEmp ==3){
-		    	 datosVesti.get(i).getDescripcion();
-		    	 datosVesti.get(i).getColor();
-		    	 datosVesti.get(i).getEstilo();
-		    	 datosVesti.get(i).getGenero();
-		    		
-		    	}
+	
+	public String loadVestimentasCarac(){
+		
+		vestimentas=VDAO.listadovestimentas();
+		for (int i = 0; i < vestimentas.size(); i++) {
+			if(vestimentas.get(i).getEstilo()== "Skate" ){
+				vestimentas.get(i).setDescripcion(vestimentas.get(i).getDescripcion());
+				vestimentas.get(i).setGenero(vestimentas.get(i).getGenero());
 				
 			}
+		}
+		return "ListaVestimenta";
+		
 		
 		
 	}
+	
 	
 
 	
