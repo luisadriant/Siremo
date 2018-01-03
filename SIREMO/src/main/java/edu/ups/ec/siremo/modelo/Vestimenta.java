@@ -76,7 +76,7 @@ public class Vestimenta implements Serializable {
 	@JoinColumn(name="ves_mar_id", referencedColumnName="mar_id")
 	private Marca marca;
 	
-	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
+	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.LAZY)
 	@JoinColumn(name="vot_ves_id", referencedColumnName="ves_id")
 	private List<Votos> votos;
 	
