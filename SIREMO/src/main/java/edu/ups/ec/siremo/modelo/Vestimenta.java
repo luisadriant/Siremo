@@ -71,14 +71,7 @@ public class Vestimenta implements Serializable {
 	
 	@Transient
 	private int likes;
-	
-//	@Transient
-//	private int id_marca=0;
-//	
-//	@Transient
-//	private int voto=0;
-	
-	
+
 	
 	@ManyToOne
 	@JoinColumn(name="ves_mar_id", referencedColumnName="mar_id")
@@ -88,46 +81,6 @@ public class Vestimenta implements Serializable {
 	@JoinColumn(name="ves_emp_id", referencedColumnName="emp_id")
 	private Empresa empresa;
 	
-//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-//	@JoinColumn(name="vot_ves_id", referencedColumnName="ves_id")
-//	private List<Votos> votos;
-	
-//	@ManyToMany(mappedBy="vestimentas")
-//	private List<Usuario> usuarios;
-	
-	
-//	public int getVoto() {
-//		return voto;
-//	}
-//
-//	public void setVoto(int voto) {
-//		this.voto = voto;
-//	}
-//
-//	public int getId_marca() {
-//		return id_marca;
-//	}
-//
-//	public void setId_marca(int id_marca) {
-//		this.id_marca = id_marca;
-//	}
-
-//	public List<Usuario> getUsuarios() {
-//		return usuarios;
-//	}
-//
-//	public void setUsuarios(List<Usuario> usuarios) {
-//		this.usuarios = usuarios;
-//	}
-
-//	public List<Votos> getVotos() {
-//		return votos;
-//	}
-//
-//	public void setVotos(List<Votos> votos) {
-//		this.votos = votos;
-//	}
-
 	
 	
 	public Marca getMarca() {
@@ -233,10 +186,5 @@ public class Vestimenta implements Serializable {
 	public void setLikes(int likes) {
 		this.likes = likes;
 	}
-	
-	
-//	public void addMarca(Marca marca) {
-//		this.marca=marca;
-//	}
-	
+
 }
