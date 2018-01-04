@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 import javax.faces.context.FacesContext;
@@ -13,6 +14,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
 import javax.inject.Inject;
+import javax.servlet.http.Part;
 
 import edu.ups.ec.siremo.dao.EmpresaDao;
 import edu.ups.ec.siremo.dao.MarcaDao;
@@ -27,7 +29,7 @@ import edu.ups.ec.siremo.util.ErrorsController;
  *
  */
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class EmpresaControlador {
 	
 
@@ -44,6 +46,98 @@ public class EmpresaControlador {
 	private List<SelectItem> camposMarcas;
 	private int id_marca;
 	private Marca marca;
+	
+	
+		//lista para los colores
+		private List<SelectItem> colores;
+		//lista para los estilos
+		private List<SelectItem> estilos;
+		//lista para los generos
+		private List<SelectItem> generos;
+		//lista para los tipos
+		private List<SelectItem> tipos;
+		//lista para los tallas
+		private List<SelectItem> tallas;
+		//
+		private Part image;
+		public Part getImage() {
+			return image;
+		}
+		public void setImage(Part image) {
+			this.image = image;
+		}
+		public List<SelectItem> getColores() {
+			loadColores(); 
+			return colores;
+		}
+		public void setColores(List<SelectItem> colores) {
+			this.colores = colores;
+		}
+		public List<SelectItem> getEstilos() {
+			loadEstilos();
+			return estilos;
+		}
+		public void setEstilos(List<SelectItem> estilos) {
+			this.estilos = estilos;
+		}
+		public List<SelectItem> getGeneros() {
+			loadGeneros();
+			return generos;
+		}
+		public void setGeneros(List<SelectItem> generos) {
+			this.generos = generos;
+		}
+		public List<SelectItem> getTipos() {
+			loadTipos();
+			return tipos;
+		}
+		public void setTipos(List<SelectItem> tipos) {
+			this.tipos = tipos;
+		}
+		public List<SelectItem> getTallas() {
+			loadTallas();
+			return tallas;
+		}
+		public void setTallas(List<SelectItem> tallas) {
+			this.tallas = tallas;
+		}
+		private void loadColores() {
+			colores=new ArrayList<SelectItem>();
+			colores.add(new SelectItem("",""));
+			colores.add(new SelectItem("Claro","Claro"));
+			colores.add(new SelectItem("Obscuro","Obscuro"));
+
+		}
+		private void loadEstilos() {
+			estilos=new ArrayList<SelectItem>();
+			estilos.add(new SelectItem("",""));
+			estilos.add(new SelectItem("Rocker","Rocker"));
+			estilos.add(new SelectItem("Casual","Casual"));
+
+		}
+		private void loadGeneros() {
+			generos=new ArrayList<SelectItem>();
+			generos.add(new SelectItem("",""));
+			generos.add(new SelectItem("Masculino","Masculino"));
+			generos.add(new SelectItem("Femenino","Femenino"));
+
+		}
+		private void loadTipos() {
+			tipos=new ArrayList<SelectItem>();
+			tipos.add(new SelectItem("",""));
+			tipos.add(new SelectItem("Torso","Torso"));
+			tipos.add(new SelectItem("Piernas","Piernas"));
+
+		}
+		private void loadTallas() {
+			tallas=new ArrayList<SelectItem>();
+			tallas.add(new SelectItem("",""));
+			tallas.add(new SelectItem("S","S"));
+			tallas.add(new SelectItem("M","M"));
+			tallas.add(new SelectItem("L","L"));
+			tallas.add(new SelectItem("XL","XL"));
+
+		}
 
 	private int id;
 	
@@ -124,33 +218,33 @@ public class EmpresaControlador {
 
 	public void setId(int id) {
 		this.id = id;
-		loadDatoseditar(id);
+//		loadDatoseditar(id);
 	}
 	//este metodo nos sirve para guardar una Empresa 
-	public String Guardar() {
-
-    try {
-		 for (int i=0 ; i<empresa.getVestimentas().size(); i++) {
-			 if(empresa.getVestimentas().get(i).getId_marca() != 0) {
-				 loadDatosMarca(empresa.getVestimentas().get(i).getId_marca());
-				 empresa.getVestimentas().get(i).addMarca(marca);
-			 } 
-		 }
-		 EDAO.Guardar(empresa);
-		 loadEmpresas();
-      }catch (Exception e) {
-		String errorMessage = error.getRootErrorMessage(e);
-	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
-	    facesContext.addMessage(null, m);
-		}
-		 return "listaAdministrador";
-
-	}
+//	public String Guardar() {
+//
+//    try {
+//		 for (int i=0 ; i<empresa.getVestimentas().size(); i++) {
+//			 if(empresa.getVestimentas().get(i).getId_marca() != 0) {
+//				 loadDatosMarca(empresa.getVestimentas().get(i).getId_marca());
+//				 empresa.getVestimentas().get(i).addMarca(marca);
+//			 } 
+//		 }
+//		 EDAO.Guardar(empresa);
+//		 loadEmpresas();
+//      }catch (Exception e) {
+//		String errorMessage = error.getRootErrorMessage(e);
+//	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
+//	    facesContext.addMessage(null, m);
+//		}
+//		 return "misVestimentas_face";
+//
+//	}
 	//este metodo nos sirve para eliminar una Empresa y a la vez mostra en pantalla las empresas que sobran
 	public String Eliminar(int id) {
 		EDAO.Borrar(id);
 		loadEmpresas();
-		return null;
+		return "misEmpresas_face";
 	}
 	//este metodo nos sirve para cargar los datos de todos las Empresas que existen en la BD
 	private void loadEmpresas() {
@@ -162,16 +256,16 @@ public class EmpresaControlador {
 		marcas=MDAO.listadomarcas();
 	}
 	//este metodo nos sirve para cargar la pagina y editar los datos de la empresa
-	public String loadDatoseditar(int id) {
-		empresa = EDAO.Leer(id);
-		for (int i=0 ; i<empresa.getVestimentas().size(); i++) {
-			 if(empresa.getVestimentas().get(i).getId_marca() == 0) {
-				 empresa.getVestimentas().get(i).setId_marca(empresa.getVestimentas().get(i).getMarca().getId());
-			 } 
-		}
-		
-		return "editarEmpresa";
-	}
+//	public String loadDatoseditar(int id) {
+//		empresa = EDAO.Leer(id);
+//		for (int i=0 ; i<empresa.getVestimentas().size(); i++) {
+//			 if(empresa.getVestimentas().get(i).getId_marca() == 0) {
+//				 empresa.getVestimentas().get(i).setId_marca(empresa.getVestimentas().get(i).getMarca().getId());
+//			 } 
+//		}
+//		
+//		return "editarEmpresa";
+//	}
 	public String loadDatosMarca(int id) {
 		marca = MDAO.Leer(id);
 		return "editarEmpresa";

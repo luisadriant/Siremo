@@ -3,9 +3,11 @@ package edu.ups.ec.siremo.modelo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -17,7 +19,7 @@ import javax.validation.constraints.NotNull;
 @Table(name="sir_votos")
 public class Votos {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="vot_id")
 	private int id;
 	
@@ -29,6 +31,10 @@ public class Votos {
 	@JoinColumn(name="vot_per_id", referencedColumnName="per_id")
 	private Usuario usuario;
 
+	@ManyToOne
+	@JoinColumn(name="vot_vest_id", referencedColumnName="ves_id")
+	private Vestimenta vestimenta;
+
 	
 	public Usuario getUsuario() {
 		return usuario;
@@ -36,6 +42,14 @@ public class Votos {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public Vestimenta getVestimenta() {
+		return vestimenta;
+	}
+
+	public void setVestimenta(Vestimenta vestimenta) {
+		this.vestimenta = vestimenta;
 	}
 
 	public int getId() {

@@ -1,14 +1,15 @@
-
 <!DOCTYPE HTML>
-<html>
-<head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
 <title>Siremo - Principal</title>
 
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 
 <!-- start plugins -->
-<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+
 <script src="js/responsiveslides.min.js"></script>
 <script>
     $(function () {
@@ -21,25 +22,29 @@
       });
     });
 </script>
-</head>
+</h:head>
 <body>
 <div class="container">
 	<div class="container_wrap">
 		<div class="header_top">
-			   <ul class="col-sm-3 logo">
-				 <li><p><a href="principal.xhtml">SIREMO</a></p></li>
-				 <li class="last"><i class="edit"> </i></li>
-				 <div class="clearfix"> </div>
-			   </ul>
+								<ui:insert name="logosiremo">
+								
+								aqui va boton del logo de SIREMO
+
+
+								</ui:insert>
+								
+
 
 		    <div class="col-sm-6 nav">
-			  
-			  <ul>
-<li> <span class="simptip-position-bottom simptip-movable" data-tooltip="Mi Estilo"><a href="estilo.xhtml"> <img  src="images/miEstilo.png" class="img-responsive"/> </a></span></li>
-<li><span class="simptip-position-bottom simptip-movable" data-tooltip="Recomendaciones"><a href="recomendaciones.xhtml"> <img  src="images/recomendacion.png" class="img-responsive"/></a> </span></li>
-<li><span class="simptip-position-bottom simptip-movable" data-tooltip="Me Gustaron"><a href="meGusta.xhtml"> <img  src="images/meGusta.png" class="img-responsive"/> </a></span></li>
-			  </ul>
-			  
+		    <!-- 
+										<ui:insert name="opciones">
+								
+								aqui van las opciones
+
+
+								</ui:insert> -->
+								
 			</div>
 			<div class="col-sm-3 header_right">
 			   <ul class="header_right_box">
@@ -54,12 +59,12 @@
 	      <div class="slider">
 	   <div class="callbacks_container">
 	      <ul class="rslides" id="slider">
-	        <li><img src="images/banner.jpg" class="img-responsive" alt=""/>
+	        <li><img src="images/camisa1.jpg" width="20px" height="20px" class="img-responsive" alt=""/>
 	        	<div class="button">
 			      <a href="descripcionVestimenta.xhtml" class="hvr-shutter-out-horizontal">Ver ahora</a>
 			    </div>
 			</li>
-	        <li><img src="images/banner1.jpg" class="img-responsive" alt=""/>
+	        <li><img src="images/vermuda.jpg" class="img-responsive" alt=""/>
 	        	<div class="button">
 			      <a href="descripcionVestimenta.xhtml" class="hvr-shutter-out-horizontal">Ver ahora</a>
 			    </div>
@@ -71,119 +76,81 @@
 			    	<div class="col-md-9">
 			    		<ul class="list_1">
 			    			<li>Publicado <span class="m_1">Feb 20, 2015</span></li>
-			    			<li>Rating <span class="m_1"><img src="images/rating.png" alt=""/></span></li>
+			    			<li>Rating <span class="m_1"><img src="images/star5.png" alt=""/></span></li>
 			    			<li><i class="icon1"> </i><p>2,548</p></li>
 			    		</ul>
 			    	</div>
 
 	    </div>
       </div>
-      <div class="content">
-      	<div class="box_1">
-      	 <h1 class="m_2">Ropa Destacada</h1>
+      
+ 	      <div class="content">
+     	<div class="box_1">
+      	 <h1 class="m_2">Recomendaciones para ti</h1>
 
       	 <div class="search">
 		    <form>
-				<input type="text" value="Search..." onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
-				<input type="submit" value="">
-		    	</input>
-		    	</input>
+				<input type="text" value="Search..." onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}"/>
+				<input type="submit" value=""/>
 		    </form>
 		</div>
 		<div class="clearfix"> </div>
 		</div>
-		<div class="box_2">
 
-			<div class="col-md-5 grid_3">
-<!--_________________________________________contenido lado izquierdo fila 1_____________________________________________________________-->
-			  <div class="row_1">
-			  <div class="col-md-6 grid_4"><a href="descripcionVestimenta.xhtml">
-				  <div class="grid_2">
-					<img src="images/pic1.jpg" class="img-responsive" alt=""/>
-					<div class="caption1">
-						<ul class="list_3">
-				    		<li><i class="icon5"> </i><p>3,548</p></li>
-				    	</ul>
-				    	<i class="icon4"> </i>
-				    	<p class="m_3">Guardians of the Galaxy</p>
-					</div>
-				   </div>
-				   <div class="grid_2 col_1">
-					<img src="images/pic2.jpg" class="img-responsive" alt=""/>
-					<div class="caption1">
-						<ul class="list_3">
-				    		<li><i class="icon5"> </i><p>3,548</p></li>
-				    	</ul>
-				    	<i class="icon4"> </i>
-				    	<p class="m_3">Guardians of the Galaxy</p>
-					</div>
-				   </div>
-				   <div class="grid_2 col_1">
-					<img src="images/pic2.jpg" class="img-responsive" alt=""/>
-					<div class="caption1">
-						<ul class="list_3">
-				    		<li><i class="icon5"> </i><p>3,548</p></li>
-				    	</ul>
-				    	<i class="icon4"> </i>
-				    	<p class="m_3">Guardians of the Galaxy</p>
-					</div>
-				   </div>
-			   </a></div>
+      	       <div class="movie_top">
 
 
 
-			   <div class="clearfix"> </div>
-			   </div>
+<!--____________________________________fila 1 al lado izquierdo la imagen, la descripcion al lado derecho _____________________________-->
+	 <div class="col-md-12 grid_4">
 
-			</div>
-<!--_________________________________________contenido lado derecho fila 3_____________________________________________________________-->
-			<div class="col-md-5 content_right">
-			 <div class="row_3">
-			  <div class="col-md-6 grid_4"><a href="descripcionVestimenta.xhtml">
-				  <div class="grid_2">
-					<img src="images/pic1.jpg" class="img-responsive" alt=""/>
-					<div class="caption1">
-						<ul class="list_3">
-				    		<li><i class="icon5"> </i><p>3,548</p></li>
-				    	</ul>
-				    	<i class="icon4"> </i>
-				    	<p class="m_3">Guardians of the Galaxy</p>
-					</div>
-				   </div>
-				   </a>
-			      </div>
-			   <div class="clearfix"> </div>
-			   </div>
+								
+								<ui:insert name="carrusel1">
+								
+								aqui va el carrusel 1 de recomendacion FCM
 
 
-			</div>
-<!--____________________________________contenido buscador al lado derecho_________________________________________________-->
-			<div class="col-md-2 grid_6">
-				<div class="m_7"><a href="descripcionVestimenta.xhtml"><img src="images/pic9.jpg" class="img-responsive" alt=""/></a></div>
-				<div class="caption1">
-						<ul class="list_5">
-				    		<li><i class="icon5"> </i><p>3,548</p></li>
-				    	</ul>
-				    	<i class="icon4 icon6"> </i>
-				    	<p class="m_3">Guardians of the Galaxy</p>
-				</div>
-				<div class="col_2 col_3">
-				   	    <ul class="list_4">
-			    			<li><i class="icon1"> </i><p>2,548</p></li>
-			    			<li><i class="icon2"> </i><p>215</p></li>
-			    			<li><i class="icon3"> </i><p>546</p></li>
-			    			<li>Rating : <p><img src="images/rating1.png" alt=""/></p></li>
-			    			<li>Release : <span class="m_4">Mar 15, 2015</span> </li>
-			    			<div class="clearfix"> </div>
-			    		</ul>
-			    		<div class="m_8"><a href="descripcionVestimenta.xhtml"><img src="images/pic10.jpg" class="img-responsive" alt=""/></a></div>
-			    </div>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-      </div>
-   </div>
- </div>
+								</ui:insert>
+								
+								
+
+
+
+	</div>
+	
+		<div class="col-md-12 grid_4">
+			<br></br>
+ 								<ui:insert name="carrusel2">
+								
+								aqui va el carrusel 1 de recomendacion por estilo
+
+
+								</ui:insert>
+
+		</div>						
+<!--____________________________________fila 3 al lado izquierdo la imagen, la descripcion al lado derecho _____________________________-->
+		<div class="col-md-12 grid_4">
+		<BR/>
+ 								<ui:insert name="carrusel3">
+								
+								aqui va el carrusel 1 de recomendacion FCM
+
+
+								</ui:insert>
+</div>
+
+
+
+</div>
+<!--____________________________________imagenes que sugieren algo, las imagenes de la derecha_____________________________-->
+                   
+
+    
+                      <div class="clearfix"> </div>
+                  </div>
+
+	  </div>
+</div>
  
 <div class="container"> 
  <footer id="footer">

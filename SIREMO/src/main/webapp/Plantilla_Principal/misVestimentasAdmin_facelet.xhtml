@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      template="misVestimentasAdmin.xhtml"
+      > 
+      <ui:define name="contenido">
+
+<h:head></h:head> 
+<body> 
+<h:form>
+<h:messages globalOnly="true"/>
+	<h:outputText value="No hay registros" rendered="#{empty vestimentaControlador.vestimentas}"/>
+	<h:dataTable value="#{vestimentaControlador.vestimentas}" var="vestimenta" rendered="#{not empty estimentaControlador.vestimentas}">
+		<h:column> <f:facet name="header"> ID </f:facet> #{vestimenta.id} </h:column>
+		<h:column> <f:facet name="header"> Descripcion </f:facet> #{vestimenta.descripcion} </h:column>
+		<h:column> <f:facet name="header"> Color </f:facet> #{vestimenta.color} </h:column>
+		<h:column> <f:facet name="header"> Marca </f:facet> #{vestimenta.marca} </h:column>
+		<h:column> <f:facet name="header"> ELIMINAR </f:facet> 
+		<h:commandButton action="#{vestimentaControlador.Eliminar(vestimenta.id)}" value="Eliminar" />
+		</h:column>
+	</h:dataTable>
+</h:form>
+</body> 
+</ui:define> 
+</ui:composition>

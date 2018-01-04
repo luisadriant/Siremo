@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
@@ -26,8 +27,9 @@ import javax.validation.constraints.NotNull;
 @Table(name="sir_vestimenta")
 public class Vestimenta implements Serializable {
 	
+	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ves_id")
 	private int id;
 	
@@ -65,10 +67,16 @@ public class Vestimenta implements Serializable {
 	private String imagen;
 	
 	@Transient
-	private int id_marca=0;
+	private String raiting;
 	
 	@Transient
-	private int voto=0;
+	private int likes;
+	
+//	@Transient
+//	private int id_marca=0;
+//	
+//	@Transient
+//	private int voto=0;
 	
 	
 	
@@ -76,45 +84,49 @@ public class Vestimenta implements Serializable {
 	@JoinColumn(name="ves_mar_id", referencedColumnName="mar_id")
 	private Marca marca;
 	
-	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
-	@JoinColumn(name="vot_ves_id", referencedColumnName="ves_id")
-	private List<Votos> votos;
+	@ManyToOne
+	@JoinColumn(name="ves_emp_id", referencedColumnName="emp_id")
+	private Empresa empresa;
 	
-	@ManyToMany(mappedBy="vestimentas")
-	private List<Usuario> usuarios;
+//	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
+//	@JoinColumn(name="vot_ves_id", referencedColumnName="ves_id")
+//	private List<Votos> votos;
+	
+//	@ManyToMany(mappedBy="vestimentas")
+//	private List<Usuario> usuarios;
 	
 	
-	public int getVoto() {
-		return voto;
-	}
+//	public int getVoto() {
+//		return voto;
+//	}
+//
+//	public void setVoto(int voto) {
+//		this.voto = voto;
+//	}
+//
+//	public int getId_marca() {
+//		return id_marca;
+//	}
+//
+//	public void setId_marca(int id_marca) {
+//		this.id_marca = id_marca;
+//	}
 
-	public void setVoto(int voto) {
-		this.voto = voto;
-	}
+//	public List<Usuario> getUsuarios() {
+//		return usuarios;
+//	}
+//
+//	public void setUsuarios(List<Usuario> usuarios) {
+//		this.usuarios = usuarios;
+//	}
 
-	public int getId_marca() {
-		return id_marca;
-	}
-
-	public void setId_marca(int id_marca) {
-		this.id_marca = id_marca;
-	}
-
-	public List<Usuario> getUsuarios() {
-		return usuarios;
-	}
-
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
-
-	public List<Votos> getVotos() {
-		return votos;
-	}
-
-	public void setVotos(List<Votos> votos) {
-		this.votos = votos;
-	}
+//	public List<Votos> getVotos() {
+//		return votos;
+//	}
+//
+//	public void setVotos(List<Votos> votos) {
+//		this.votos = votos;
+//	}
 
 	
 	
@@ -124,6 +136,14 @@ public class Vestimenta implements Serializable {
 
 	public void setMarca(Marca marca) {
 		this.marca = marca;
+	}
+
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
 
 	public int getId() {
@@ -197,8 +217,26 @@ public class Vestimenta implements Serializable {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-	public void addMarca(Marca marca) {
-		this.marca=marca;
+
+	public String getRaiting() {
+		return raiting;
 	}
+
+	public void setRaiting(String raiting) {
+		this.raiting = raiting;
+	}
+
+	public int getLikes() {
+		return likes;
+	}
+
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
+	
+	
+//	public void addMarca(Marca marca) {
+//		this.marca=marca;
+//	}
 	
 }

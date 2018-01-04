@@ -49,7 +49,7 @@ public class Empresa implements Serializable{
 	@NotNull
 	private String direccion;
 	
-	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
+	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.LAZY)
 	@JoinColumn(name="ves_emp_id", referencedColumnName="emp_id")
 	private List<Vestimenta> vestimentas;
 	

@@ -43,6 +43,7 @@ public class EmpresaDao {
 	//este metodo nos sirve para buscar una Empresa en base a un id
 	public Empresa Leer(int id) {
 		Empresa empresa = EM.find(Empresa.class, id);
+		empresa.getVestimentas().size();
 		return empresa;
 	}
 	

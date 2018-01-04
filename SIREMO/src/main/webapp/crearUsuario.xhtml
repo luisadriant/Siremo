@@ -9,7 +9,9 @@
 
 <h:form>
 <h:messages globalOnly="true"/>
- <h:messages globalOnly="true"/>
+<h:outputScript rendered="#{usuarioControlador.guadado}">
+    alert("El nombre de usuario ya existe");
+</h:outputScript>
 	<h:panelGrid columns="3">
 		
 		<h:outputLabel value="Nombres" for="nombres"/>
@@ -37,6 +39,12 @@
 			<f:convertDateTime pattern="dd/MM/yyyy"/>
 		</h:inputText>
 		<h:message for="fechaNacimiento"/>
+		
+		<h:outputLabel value="Genero" for="genero"/>
+		<h:selectOneMenu value="#{usuarioControlador.usuario.genero}" id="genero">
+			<f:selectItems value="#{usuarioControlador.generos}"/> 
+		</h:selectOneMenu>
+		<h:message for="genero"/>
 		
 		<h:outputLabel value="Contasenia" for="pass"/>
 		<h:inputText value="#{usuarioControlador.usuario.contrasenia}" id="pass" />

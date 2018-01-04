@@ -249,7 +249,7 @@ ul.header_right_box li.last{
 }
 .rslides img {
   display: block;
-  height: auto;
+  height: 400px;
   float: left;
   width: 100%;
   border: 0;
@@ -523,7 +523,7 @@ text-shadow: none;
 margin: 0;
 max-width: none;
 position: absolute;
-top:90.5%;
+top:85%;
 right: 0;
 width: 100%;
 padding: 10px 15px 5px;
@@ -869,17 +869,27 @@ ul.first li a:hover{
 background-color:#fff;
 }
 .movie-test {
-width: 50%;
-float: left;
+width: 100%;
+float: right;
 margin-bottom: 8px;
 }
 .movie-test-left .movie__images {
 float: left;
 }
-.movie-test .movie__images {
+.movie-test .movie__images{
 width: 50%;
-border: none;
+border: 100px;
 position: relative;
+
+}
+
+.movie-test .movie__images img{
+width: 50%;
+border: 100px;
+position: relative;
+
+  width: 150px;
+  height: 170px; 
 }
 
 .movie-test .movie-beta__link:after {
@@ -899,9 +909,8 @@ background-color: rgba(255, 255, 255, 0.4);
 }
 
 .movie-test .movie__info {
-overflow: hidden;
 padding: 17px 17px;
-position: relative;
+position: center;
 margin: 0;
 background: #fff;
 }

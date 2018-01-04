@@ -131,6 +131,18 @@
             <artifactId>jboss-ejb-api_3.2_spec</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
+			<dependency>
+            	<groupId>org.primefaces</groupId>
+            	<artifactId>primefaces</artifactId>
+            	<version>6.0</version>
+        	</dependency>
+        	<dependency>
+            	<groupId>org.primefaces.extensions</groupId>
+         		<artifactId>all-themes</artifactId>
+            	<version>1.0.8</version>
+            	<type>pom</type>
+        	</dependency>
 
         <!-- JSR-303 (Bean Validation) Implementation -->
         <!-- Provides portable constraints such as @Email -->
@@ -194,6 +206,14 @@
             <artifactId>arquillian-protocol-servlet</artifactId>
             <scope>test</scope>
         </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+			<dependency>
+			    <groupId>javax.servlet</groupId>
+			    <artifactId>javax.servlet-api</artifactId>
+			    <version>4.0.0</version>
+			    <scope>provided</scope>
+			</dependency>
 
     </dependencies>
 

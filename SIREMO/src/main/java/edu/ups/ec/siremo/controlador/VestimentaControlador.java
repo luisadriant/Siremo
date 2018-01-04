@@ -43,6 +43,7 @@ public class VestimentaControlador {
 	private Vestimenta vestimenta;
 	//variables necesarias
 	private List<Vestimenta> vestimentas;
+	private List<Vestimenta> datosVesti;
 	private List<SelectItem> camposVotos;
 	private List<Votos> votos;
 	private int id;
@@ -103,56 +104,76 @@ public class VestimentaControlador {
 
 	public void setId(int id) {
 		this.id = id;
-		loadVestimentas();
+//		loadVestimentas();
 		loadDatoUsuario(id);
 	}
 	
 	//este metodo nos sirve para guardar una Vestimenta 
-	public String Guardar() {
-
-  try {
-		loadDatoUsuario(id);
-		 for (int i=0; i< vestimentas.size(); i++) {
-			 
-				 Votos v=new Votos();
-				 v.setUsuario(usuario);
-				 v.setVoto(vestimentas.get(i).getVoto());
-				 if(vestimentas.get(i).getVotos()==null) 
-				 vestimentas.get(i).setVotos(new ArrayList<Votos>());
-				 vestimentas.get(i).getVotos().add(v);
-				 VDAO.Guardar(vestimentas.get(i));
-
-		 }		
-		 loadVestimentas();
-      }catch (Exception e) {
-			String errorMessage = error.getRootErrorMessage(e);
-		    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
-		    facesContext.addMessage(null, m);
-		}
-		 return "listaUsuariosVotar";
-	}
+//	public String Guardar() {
+//
+//  try {
+//		loadDatoUsuario(id);
+//		 for (int i=0; i< vestimentas.size(); i++) {
+//			 
+//				 Votos v=new Votos();
+//				 v.setUsuario(usuario);
+//				 v.setVoto(vestimentas.get(i).getVoto());
+//				 if(vestimentas.get(i).getVotos()==null) 
+//				 vestimentas.get(i).setVotos(new ArrayList<Votos>());
+//				 vestimentas.get(i).getVotos().add(v);
+//				 VDAO.Guardar(vestimentas.get(i));
+//
+//		 }		
+//		 loadVestimentas();
+//      }catch (Exception e) {
+//			String errorMessage = error.getRootErrorMessage(e);
+//		    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
+//		    facesContext.addMessage(null, m);
+//		}
+//		 return "listaUsuariosVotar";
+//	}
 	//este metodo nos sirve para eliminar una Vestimenta y a la vez mostra en pantalla las vestimentas que sobran
 	public String Eliminar(int id) {
 		VDAO.Borrar(id);
-		loadVestimentas();
-		return "listaUsuario";
+		//loadVestimentas();
+		return "misVestimentas_face";
 	}
 	//este metodo nos sirve para cargar los datos de todas las Vestimentas que existen en la BD
-	private void loadVestimentas() {
-		// TODO Auto-generated method stub
-		vestimentas=VDAO.listadovestimentas();
+//	private void loadVestimentas() {
+//		// TODO Auto-generated method stub
+//		vestimentas=VDAO.listadovestimentas();
+//		loadDatoUsuario(id);
+//		 for (int i=0; i< vestimentas.size(); i++) {
+//			 for(int j=0; j< vestimentas.get(i).getVotos().size(); j++) {
+//				 if(vestimentas.get(i).getVotos().get(j)!=null) {
+//				 if(vestimentas.get(i).getVotos().get(j).getUsuario().getId()==usuario.getId()) {
+//					 //System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++"+vestimentas.get(i).getVotos().get(j).getUsuario().getId());
+//					 vestimentas.get(i).setVoto(vestimentas.get(i).getVotos().get(j).getVoto());
+//					 }
+//				 }
+//			 }
+//		 }
+//			}
+	public void cargarDatosVestimenta(int codUser, int codEmp){
+		datosVesti= VDAO.listadovestimentas();
 		loadDatoUsuario(id);
-		 for (int i=0; i< vestimentas.size(); i++) {
-			 for(int j=0; j< vestimentas.get(i).getVotos().size(); j++) {
-				 if(vestimentas.get(i).getVotos().get(j)!=null) {
-				 if(vestimentas.get(i).getVotos().get(j).getUsuario().getId()==usuario.getId()) {
-					 //System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++"+vestimentas.get(i).getVotos().get(j).getUsuario().getId());
-					 vestimentas.get(i).setVoto(vestimentas.get(i).getVotos().get(j).getVoto());
-				 }
-				 }
-			 }
-		 }
+		    for (int i = 0; i <datosVesti.size(); i++) {
+		    	if(codUser == 1 && codEmp ==3){
+		    	 datosVesti.get(i).getDescripcion();
+		    	 datosVesti.get(i).getColor();
+		    	 datosVesti.get(i).getEstilo();
+		    	 datosVesti.get(i).getGenero();
+		    		
+		    	}
+				
+			}
+		
+		
 	}
+	
+
+	
+	
 	//este metodo nos sirve para cargar la pagina y editar los datos de Vestimentas
 	public String loadDatoseditar(int id) {
 		vestimenta = VDAO.Leer(id);
@@ -171,6 +192,7 @@ public class VestimentaControlador {
 		camposVotos.add(new SelectItem("5","5"));
 		camposVotos.add(new SelectItem("0","0"));
 	}
+	
 	
 	
 }

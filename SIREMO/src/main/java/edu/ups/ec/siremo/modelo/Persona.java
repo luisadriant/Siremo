@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -27,7 +28,7 @@ public class Persona implements Serializable{
 	
 	@Id
 	@Column(name="per_id")
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //para generar autoincrement de ID desde 1.
 	private int id;
 	
 	@Column(name="per_nombres")
@@ -54,6 +55,10 @@ public class Persona implements Serializable{
 	@Email
 	private String email;
 	
+	@Column(name="per_genero")
+	@NotNull
+	private String genero;
+	
 	@Column(name="per_contrasenia")
 	@NotNull
 	private String contrasenia;
@@ -64,6 +69,12 @@ public class Persona implements Serializable{
 	private Date fechanacimiento;
 	
 	
+	public String getGenero() {
+		return genero;
+	}
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
 	public Date getFechanacimiento() {
 		return fechanacimiento;
 	}
