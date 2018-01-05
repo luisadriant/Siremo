@@ -14,24 +14,19 @@ import edu.ups.ec.siremo.modelo.Usuario;
  * @author root
  */
 @Stateless
-public class UsuarioDAO {
+public class UsuarioDao {
 	
 	//llamamos al entity manager el cual nos permite la conexion con la BD y poder realizar las persistencias
 	@Inject
 	private EntityManager EM;
 	
 	//este metodo nos permite guardar la persistencia, en caso de que exista actualiza sus datos
-	public boolean Guardar(Usuario u) {
+	public void Guardar(Usuario u) {
 		Usuario usr=Leer(u.getId());
-		if(usr==null && listadousuariosUN(u.getNombreusuario()).size()==0) {
+		if(usr==null)
 			Insertar(u);
-			return true;
-		}else if (usr!=null){
+		else
 			Actualizar(u);
-			return true;
-		}else
-			return false;
-			
 	}
 	
 	public void Insertar(Usuario u) {
@@ -52,23 +47,6 @@ public class UsuarioDAO {
 		public List<Usuario> listadousuarios() {
 			String  jpql = "SELECT u FROM Usuario u";
 			Query query = EM.createQuery(jpql, Usuario.class);
-			List<Usuario> listado = query.getResultList(); 
-			return listado;
-		}
-		//metodo para verificar la existencia de un usuario
-		public List<Usuario> listadousuariosUN(String un) {
-			String  jpql = "SELECT u FROM Usuario u WHERE u.nombreusuario=:un";
-			Query query = EM.createQuery(jpql, Usuario.class);
-			query.setParameter("un", un);
-			List<Usuario> listado = query.getResultList(); 
-			return listado;
-		}
-		//metodo para verificar datos de logeo
-		public List<Usuario> listadousuarioLog(String un, String pass) {
-			String  jpql = "SELECT u FROM Usuario u WHERE u.nombreusuario=:un AND u.contrasenia=:pass";
-			Query query = EM.createQuery(jpql, Usuario.class);
-			query.setParameter("un", un);
-			query.setParameter("pass", pass);
 			List<Usuario> listado = query.getResultList(); 
 			return listado;
 		}
