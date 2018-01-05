@@ -237,7 +237,7 @@ public class EmpresaControlador {
 	    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
 	    facesContext.addMessage(null, m);
 		}
-		 return "misVestimentas_face";
+		 return "listaAdministrador";
 
 	}
 	//este metodo nos sirve para eliminar una Empresa y a la vez mostra en pantalla las empresas que sobran
