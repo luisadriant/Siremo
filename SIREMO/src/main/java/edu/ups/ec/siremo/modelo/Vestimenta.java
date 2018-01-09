@@ -200,5 +200,12 @@ public class Vestimenta implements Serializable {
 	public void addMarca(Marca marca) {
 		this.marca=marca;
 	}
+
+	@Override
+	public String toString() {
+		return "Vestimenta [id=" + id + ", Descripcion=" + Descripcion + ", color=" + color + ", talla=" + talla
+				+ ", genero=" + genero + ", precio=" + precio + ", tipo=" + tipo + ", estilo=" + estilo + ", imagen="
+				+ imagen + ", id_marca=" + id_marca + "]";
+	}
 	
 }

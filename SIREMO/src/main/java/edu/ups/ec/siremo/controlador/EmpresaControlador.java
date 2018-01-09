@@ -1,14 +1,14 @@
 package edu.ups.ec.siremo.controlador;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
-
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import javax.faces.model.SelectItem;
@@ -29,7 +29,7 @@ import edu.ups.ec.siremo.util.ErrorsController;
  *
  */
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class EmpresaControlador {
 	
 
@@ -37,16 +37,17 @@ public class EmpresaControlador {
 	ErrorsController error = new ErrorsController();
 	@Inject
 	private FacesContext facesContext;
-
-	private Empresa empresa;
 	//variables necesarias
+	private Empresa empresa;
 	private List<Empresa> empresas;
-
 	private List<Marca> marcas;
 	private List<SelectItem> camposMarcas;
 	private int id_marca;
 	private Marca marca;
 	
+	private Vestimenta newVestimenta;
+	private Vestimenta selectVestimenta;
+	private List<Vestimenta> filtVestimenta;
 	
 		//lista para los colores
 		private List<SelectItem> colores;
@@ -65,6 +66,26 @@ public class EmpresaControlador {
 		}
 		public void setImage(Part image) {
 			this.image = image;
+		}
+		
+		
+		public Vestimenta getNewVestimenta() {
+			return newVestimenta;
+		}
+		public void setNewVestimenta(Vestimenta newVestimenta) {
+			this.newVestimenta = newVestimenta;
+		}
+		public List<Vestimenta> getFiltVestimenta() {
+			return filtVestimenta;
+		}
+		public void setFiltVestimenta(List<Vestimenta> filtVestimenta) {
+			this.filtVestimenta = filtVestimenta;
+		}
+		public void setSelectVestimenta(Vestimenta selectVestimenta) {
+			this.selectVestimenta = selectVestimenta;
+		}
+		public Vestimenta getSelectVestimenta() {
+			return selectVestimenta;
 		}
 		public List<SelectItem> getColores() {
 			loadColores(); 
@@ -155,6 +176,7 @@ public class EmpresaControlador {
 		empresa=new Empresa();
 		marca=new Marca();
 		empresa.addVestimenta(new Vestimenta());
+		newVestimenta=new Vestimenta();
 		loadEmpresas();
 		loadMarcas();
 		
@@ -168,8 +190,6 @@ public class EmpresaControlador {
 	public void setCamposMarcas(List<SelectItem> camposMarcas) {
 		this.camposMarcas = camposMarcas;
 	}
-
-
 	public List<Marca> getMarcas() {
 		return marcas;
 	}
@@ -241,10 +261,13 @@ public class EmpresaControlador {
 
 	}
 	//este metodo nos sirve para eliminar una Empresa y a la vez mostra en pantalla las empresas que sobran
-	public String Eliminar(int id) {
+	public String Eliminar(int id, int idAdmin) throws IOException {
+		System.out.println(id+"<+<+<+<+<+<+<+<+<+<+<+<");
 		EDAO.Borrar(id);
-		loadEmpresas();
-		return "misEmpresas_face";
+		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+		externalContext.redirect("misEmpresas_face.xhtml?id="+idAdmin);
+		//loadEmpresas();
+		return "";
 	}
 	//este metodo nos sirve para cargar los datos de todos las Empresas que existen en la BD
 	private void loadEmpresas() {
@@ -282,5 +305,50 @@ public class EmpresaControlador {
 		 for (int i=0 ; i<marcas.size(); i++) {
 			 camposMarcas.add(new SelectItem(marcas.get(i).getId()+"",marcas.get(i).getNombre()+""));
 		 }
+	}
+	
+	public String Cancelar(int id) throws IOException {
+		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+		externalContext.redirect("misVestimentas_face.xhtml?id="+id);
+		return "";
+	}
+	
+	public String EditarVestimenta(int id) throws IOException {
+		for (Vestimenta v:empresa.getVestimentas()) {
+			if(v.getId()==id) {
+				v.setColor(selectVestimenta.getColor());
+				v.setDescripcion(selectVestimenta.getDescripcion());
+				v.setEstilo(selectVestimenta.getEstilo());
+				v.setGenero(selectVestimenta.getGenero());
+				if(selectVestimenta.getId_marca() != 0) {
+					 loadDatosMarca(selectVestimenta.getId_marca());
+					 v.addMarca(marca);
+				} 
+				v.setPrecio(selectVestimenta.getPrecio());
+				v.setTipo(selectVestimenta.getTipo());
+				v.setTalla(selectVestimenta.getTalla());
+				v.setImagen(selectVestimenta.getImagen());
+			}
+		}
+		EDAO.Guardar(empresa);
+		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+		externalContext.redirect("misVestimentas_face.xhtml?id="+empresa.getId());
+		return "";
+	}
+	public String NuevaVestimenta() throws IOException {
+		if (newVestimenta!=null) {
+			if(newVestimenta.getId_marca() != 0) {
+				 loadDatosMarca(newVestimenta.getId_marca());
+				 newVestimenta.addMarca(marca);
+			} 
+			System.out.println("---"+newVestimenta);
+			
+			empresa.addVestimenta(newVestimenta);
+			EDAO.Guardar(empresa);
+			newVestimenta=new Vestimenta();
+		}
+		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+		externalContext.redirect("misVestimentas_face.xhtml?id="+empresa.getId());
+		return "";
 	}
 }

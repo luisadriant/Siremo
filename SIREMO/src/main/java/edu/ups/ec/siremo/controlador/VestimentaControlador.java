@@ -1,5 +1,6 @@
 package edu.ups.ec.siremo.controlador;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import javax.faces.model.SelectItem;
@@ -132,10 +133,13 @@ public class VestimentaControlador {
 		 return "listaUsuariosVotar";
 	}
 	//este metodo nos sirve para eliminar una Vestimenta y a la vez mostra en pantalla las vestimentas que sobran
-	public String Eliminar(int id) {
+	public String Eliminar(int id, int idEmp) throws IOException {
+		System.out.println("datos: id "+id+" emp: "+idEmp);
 		VDAO.Borrar(id);
+		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+		externalContext.redirect("misVestimentas_face.xhtml?id="+idEmp);
 		//loadVestimentas();
-		return "misVestimentas_face";
+		return "";
 	}
 	//este metodo nos sirve para cargar los datos de todas las Vestimentas que existen en la BD
 	private void loadVestimentas() {

@@ -15,6 +15,10 @@
  <div class="movie movie-test movie-test-dark movie-test-left">
   <h:form>		
 		<h:messages globalOnly="true"/>
+	<h:outputScript rendered="#{administradorControlador.passDiferentes}">
+		    alert("Las contraseñas no coinsiden");
+	</h:outputScript>	
+	
       <div class="form-group has-feedback">
       	Nombres Administrador:
         <h:inputText value="#{administradorControlador.administrador.nombres}" id="nombres" type="text" class="form-control" placeholder="Nombres"/>
@@ -66,51 +70,14 @@
 		<h:message for="rpass"/>
 
       </div>
-      
-    <h:panelGrid>
-	<h:dataTable id="tel" value="#{administradorControlador.administrador.empresas}" var="empresas">
-		<h:column>
-		  <div>
-			<p class="login-box-msg">Tu Empresa</p>
-		  </div>
-	      <div class="form-group has-feedback">
-	      	Nombre empresa:
-	        <h:inputText value="#{empresas.nombre}" id="nombreemp" type="text" class="form-control"/>
-			<h:message for="nombreemp"/>
-	      </div>
-	      <div class="form-group has-feedback">
-	        Descripcion Empresa:
-	        <h:inputText value="#{empresas.descripcion}" id="descripcion" type="text" class="form-control"/>
-			<h:message for="descripcion"/>
-	      </div>
-	      <div class="form-group has-feedback">
-	        Ruc Empresa:
-	        <h:inputText value="#{empresas.ruc}" id="ruc" type="text" class="form-control" />
-			<h:message for="ruc"/>
-	      </div>
-	      <div class="form-group has-feedback">
-	        Direccion:
-	        <h:inputText value="#{empresas.direccion}" id="direccion" type="text" class="form-control" />
-			<h:message for="direccion"/>
-	      </div>
-	   </h:column>
-    </h:dataTable>
-	</h:panelGrid> 
-        <h:commandButton action="#{administradorControlador.addEmpresa()}" value="+ Empresas" class="btn btn-primary btn-block btn-flat">
-		<f:ajax render="tel" execute="@all"></f:ajax>
-		</h:commandButton>
-      
       <div class="column">
         <div class="col-xs-8">
           <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Acepto los <a style="color:blue;" href="#">terminos</a> y condiciones. </input>
-            </label>
           </div>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-        	<h:commandButton action="#{administradorControlador.Guardar2()}" value="Guardar" type="submit" class="btn btn-primary btn-block btn-flat"/>
+        	<h:commandButton action="#{administradorControlador.Guardar2(sesionControlador.id)}" value="Guardar" type="submit" class="btn btn-primary btn-block btn-flat"/>
         </div>
         <!-- /.col -->
       </div>

@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.inject.Inject;
@@ -157,7 +158,7 @@ public class AdministradorControlador {
 		 return "";
 
 	}
-	public String Guardar2() {
+	public String Guardar2(int id) {
 		 try {		 
 		 if(administrador.getContrasenia().equals(rcontrasenia)) {
 			 passDiferentes=false;
@@ -166,7 +167,9 @@ public class AdministradorControlador {
 			 if (guardado) {
 				 administrador = new Administrador();
 				 rcontrasenia="";
-				 return"misEmpresas_face.xhtml";
+				 ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+				 externalContext.redirect("misEmpresas_face.xhtml?id="+id);
+				 return "";
 			 }else {
 				 admrepetido=true;
 			 }
@@ -179,6 +182,22 @@ public class AdministradorControlador {
 		    facesContext.addMessage(null, m);
 		    
 		    
+			}
+		 return "";
+
+	}
+	public String Guardar3(Administrador administrador) {
+		 try {		 
+			 guardado=ADAO.Guardar(administrador);
+			 if (guardado) {
+				 ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+				 externalContext.redirect("misEmpresas_face.xhtml?id="+administrador.getId());
+				 return "";
+			 }
+		 }catch (Exception e) {
+			String errorMessage = error.getRootErrorMessage(e);
+		    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
+		    facesContext.addMessage(null, m);		    
 			}
 		 return "";
 

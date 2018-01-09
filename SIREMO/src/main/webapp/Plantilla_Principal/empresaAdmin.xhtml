@@ -19,7 +19,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </h:head>
   <ui:insert name="clave">
-  		Aqui va el contenido de la pagina
   </ui:insert>
 
 <body>
@@ -27,15 +26,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="container_wrap">
 		<div class="header_top">
 			   <ul class="col-sm-3 logo">
-				 <li><p><a href="misEmpresas_face.xhtml">SIREMO</a></p></li>
+				 <li><p><a href="misEmpresas_face.xhtml?id=#{sesionControlador.id}">SIREMO</a></p></li>
 				 <li class="last"><i class="edit"> </i></li>
 				 <div class="clearfix"> </div>
 			   </ul>
 
 		    <div class="col-sm-6 nav">
 			  <ul>
-<li> <span class="simptip-position-bottom simptip-movable" data-tooltip="Mis Vestimentas"><a href="misVestimentas_face.xhtml"> <img  src="images/miEstilo.png" class="img-responsive"/> </a></span></li>
-<li><span class="simptip-position-bottom simptip-movable" data-tooltip="Editar mis Vestimentas"><a href="crearVestimenta_face.xhtml?id=#{empresaControlador.id}"> <img  src="images/recomendacion.png" class="img-responsive"/></a> </span></li>
+<li> <span class="simptip-position-bottom simptip-movable" data-tooltip="Mis Empresas"><a href="misEmpresas_face.xhtml?id=#{sesionControlador.id}"> <img  src="images/misEmpresas.png" class="img-responsive"/> </a></span></li>
+<li><span class="simptip-position-bottom simptip-movable" data-tooltip="Editar mi Informacion"><a href="crearVestimenta_face.xhtml?id=#{empresaControlador.id}"> <img  src="images/misDatos.png" class="img-responsive"/></a> </span></li>
+
 			  </ul>
 			  
 			</div>
@@ -53,12 +53,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
      	<div class="box_1">
       	 <h1 class="m_2">Administra tus Vestimentas</h1>
 
-      	 <div class="search">
-		    <form>
-				<input type="text" value="Search..." onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}"/>
-				<input type="submit" value=""/>
-		    </form>
-		</div>
+      	 
 		<div class="clearfix"> </div>
 		</div>
 

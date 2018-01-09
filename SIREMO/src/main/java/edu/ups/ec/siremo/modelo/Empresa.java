@@ -49,6 +49,10 @@ public class Empresa implements Serializable{
 	@NotNull
 	private String direccion;
 	
+	@Column(name="emp_contacto")
+	@NotNull
+	private String contacto;
+	
 	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.LAZY)
 	@JoinColumn(name="ves_emp_id", referencedColumnName="emp_id")
 	private List<Vestimenta> vestimentas;
@@ -89,6 +93,12 @@ public class Empresa implements Serializable{
 	}
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
+	}
+	public String getContacto() {
+		return contacto;
+	}
+	public void setContacto(String contacto) {
+		this.contacto = contacto;
 	}
 	public void addVestimenta(Vestimenta v) {
 		if (vestimentas==null)
