@@ -28,7 +28,7 @@ public class Votos {
 	@NotNull
 	@Column(name="vot_voto")
 	private int voto;
-	
+	 
 	@ManyToOne
 	@JoinColumn(name="vot_per_id", referencedColumnName="per_id")
 	private Usuario usuario;

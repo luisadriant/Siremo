@@ -22,7 +22,7 @@ public class Administrador extends Persona implements Serializable {
 	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
 	@JoinColumn(name="emp_per_id", referencedColumnName="per_id")
 	private List<Empresa> empresas;
-
+ 
 	public List<Empresa> getEmpresas() {
 		return empresas;
 	}
