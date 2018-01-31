@@ -1,0 +1,110 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+       template="buscador.xhtml">
+	
+		<ui:define name="contenido">
+		
+			<h:form id="form" >
+			    <p:dataTable id="tableStateDT" var="vestimenta" value="#{principalControlador.vestimentasBuscar}" widgetVar="vesTable" multiViewState="true"
+			                 rows="10" paginator="true"
+			                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			                 rowsPerPageTemplate="5,10,15"
+			                 selectionMode="single" selection="#{empresaControlador.selectVestimenta}" rowKey="#{vestimenta.id}"
+			                 emptyMessage="No se encuentran vestimentas" filteredValue="#{principalControlador.filtVestimenta}">
+			 
+			        <f:facet name="header">
+			            <p:outputPanel>
+			                <h:outputText value="Buscar en todo:" />
+			                <p:inputText id="globalFilter" onkeyup="PF('vesTable').filter()" style="width:300px" placeholder="Buscar"/>
+			            </p:outputPanel>
+			        </f:facet>
+			 
+			 
+			       
+
+			 
+			        <p:column headerText="Imagen" style=" width:10%;">
+			       <a id="h" href="descripcionVestimenta_face.xhtml?idVesti=#{vestimenta.id}">
+			        <img alt="" src="#{vestimenta.imagen}" class="img-responsive" width="100" height="15"/>
+			       			       </a>
+			        </p:column>
+
+			        <p:column headerText="Descripcion" filterBy="#{vestimenta.descripcion}" sortBy="#{vestimenta.descripcion}" filterMatchMode="contains" >
+			        <a id="h" href="descripcionVestimenta_face.xhtml?idVesti=#{vestimenta.id}">
+			            <h:outputText value="#{vestimenta.descripcion}" />
+			            </a>
+			        </p:column>
+			 
+			        <p:column headerText="Estilo" filterBy="#{vestimenta.estilo}" sortBy="#{vestimenta.estilo}" filterMatchMode="startsWith">
+			            <h:outputText value="#{vestimenta.estilo}" />
+			        </p:column>
+			        
+			        <p:column headerText="Color" filterBy="#{vestimenta.color}" sortBy="#{vestimenta.color}" filterMatchMode="startsWith">
+			            <h:outputText value="#{vestimenta.color}" />
+			        </p:column>
+			        
+			        <p:column headerText="Tipo" filterBy="#{vestimenta.tipo}" sortBy="#{vestimenta.tipo}" filterMatchMode="startsWith">
+			            <h:outputText value="#{vestimenta.tipo}" />
+			        </p:column>
+			        
+			        <p:column headerText="Genero" filterBy="#{vestimenta.genero}" sortBy="#{vestimenta.genero}" filterMatchMode="startsWith">
+			            <h:outputText value="#{vestimenta.genero}" />
+			        </p:column>
+			        
+			        <p:column headerText="Precio" filterBy="#{vestimenta.precio}" sortBy="#{vestimenta.precio}" filterMatchMode="startsWith">
+			            <h:outputText value="#{vestimenta.precio}" />
+			        </p:column>
+			        
+			        <p:column headerText="Talla" filterBy="#{vestimenta.talla}" sortBy="#{vestimenta.talla}" filterMatchMode="startsWith">
+			            <h:outputText value="#{vestimenta.talla}" />
+			        </p:column>
+			        
+			        <p:column headerText="Marca" filterBy="#{vestimenta.marca.nombre}" sortBy="#{vestimenta.marca.nombre}" filterMatchMode="startsWith">
+			            <h:outputText value="#{vestimenta.marca.nombre}" />
+			        </p:column>
+			 
+			    </p:dataTable>
+			 
+			    <p:dialog header="Ver Vestimenta" widgetVar="vesDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			        <p:outputPanel id="vesDetail" style="text-align:center;">
+			            <p:panelGrid  columns="2" rendered="#{not empty empresaControlador.selectVestimenta}" columnClasses="value,value">
+			                <f:facet name="header">
+			                     <img alt="" src="#{empresaControlador.selectVestimenta.imagen}" class="img-responsive" width="200" height="200"/>
+			                </f:facet>
+			 
+			                <h:outputText value="Descripcion:" />
+			                <h:outputText value="#{empresaControlador.selectVestimenta.descripcion}" />
+			 
+			                <h:outputText value="Color:" />
+			                <h:outputText value="#{empresaControlador.selectVestimenta.color}" />
+			 
+			                <h:outputText value="Estilo:" />
+			                <h:outputText value="#{empresaControlador.selectVestimenta.estilo}" />
+			 
+			                <h:outputText value="Genero:" />
+			                <h:outputText value="#{empresaControlador.selectVestimenta.genero}"/>
+			                
+			                <h:outputText value="Tipo:" />
+			                <h:outputText value="#{empresaControlador.selectVestimenta.tipo}" />
+			 
+			                <h:outputText value="Precio:" />
+			                <h:outputText value="#{empresaControlador.selectVestimenta.precio}" />
+			 
+			                <h:outputText value="Talla:" />
+			                <h:outputText value="#{empresaControlador.selectVestimenta.talla}" />
+			 
+			                <h:outputText value="Marca:" />
+			                <h:outputText value="#{empresaControlador.selectVestimenta.marca.nombre}"/>
+			            </p:panelGrid>
+			        </p:outputPanel>
+			    </p:dialog>
+			   	    
+			</h:form>
+		
+		
+
+		</ui:define>
+</ui:composition>

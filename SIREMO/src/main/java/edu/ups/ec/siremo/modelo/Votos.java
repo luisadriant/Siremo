@@ -24,7 +24,7 @@ public class Votos {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="vot_id")
 	private int id;
-	
+	 
 	@NotNull
 	@Column(name="vot_voto")
 	private int voto;

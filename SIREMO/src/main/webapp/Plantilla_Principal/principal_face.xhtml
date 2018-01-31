@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+
+
+
+	<ui:composition template="principal.xhtml">
+
+<ui:define name="logosiremo">
+			<h:form>	
+			   <ul class="col-sm-3 logo">
+				 <li><p><a href="principal_face.xhtml">SIREMO</a></p></li>
+				 <li class="last"><i class="edit"> </i></li>
+				 <div class="clearfix"> </div>
+			   </ul>
+			</h:form>
+</ui:define>
+
+<ui:define name="carrusel_recomendacion">
+	<h:form id="form">
+	    <p:carousel value="#{principalControlador.vestimentasRecomen}" headerText="Recomendaciones" var="vestimenta" itemStyle="text-align:right" responsive="true">
+	        <p:panelGrid columns="1" style="width:100%;margin:0px 30px" columnClasses="label,value"  styleClass="ui-panelgrid-blank">
+	            <f:facet name="header">
+	         <p:graphicImage name="#{vestimenta.imagen}"/>
+	            </f:facet>
+	 
+	
+	<div class="movie movie-test movie-test-dark movie-test-left">			  
+		     <div class="movie__images">
+		         <a href="descripcionVestimenta_face.xhtml?idVesti=#{vestimenta.id}" class="movie-beta__link">
+		         <img alt="" src="#{vestimenta.imagen}" class="img-responsive" />
+		         </a>
+			 </div>
+			
+			<div class="movie__info">
+		      <ul class="list_6">
+		      <li><a href="descripcionVestimenta_face.xhtml?idVesti=#{vestimenta.id}" class="movie__title">#{vestimenta.descripcion}</a></li>
+		         
+		         <li >Color: #{vestimenta.color}</li>
+			 	   <li >Talla: #{vestimenta.talla}</li>
+			 	   <li >Marca: #{vestimenta.marca.nombre}</li>
+		           
+						<li><i class="icon1"> </i><p>#{vestimenta.likes}</p></li>
+	
+						<li><p><img src="#{vestimenta.raiting}" /></p></li>
+						
+				   </ul>
+		    </div>							
+		          
+	        </div>
+	
+	            
+	        </p:panelGrid>
+	 
+	    </p:carousel>
+	 
+	</h:form>	
+</ui:define>    
+
+
+<ui:define name="carrusel_conjuntos">
+	<h:form id="form1">
+	    <p:carousel value="#{principalControlador.vestimentasConjuntos}" headerText="Conjuntos" var="vestimenta" itemStyle="text-align:right" responsive="true">
+	        <p:panelGrid columns="1" style="width:100%;margin:0px 30px" columnClasses="label,value"  styleClass="ui-panelgrid-blank">
+	            <f:facet name="header">
+	         <p:graphicImage name="#{vestimenta.imagen}"/>
+	            </f:facet>
+	 
+	
+	<div class="movie movie-test movie-test-dark movie-test-left">			  
+		     <div class="movie__images">
+		         <a href="descripcionVestimenta_face.xhtml?idVesti=#{vestimenta.id}" class="movie-beta__link">
+		         <img alt="" src="#{vestimenta.imagen}" class="img-responsive" />
+		         </a>
+			 </div>
+			
+			<div class="movie__info">
+		      <ul class="list_6">
+		      <li><a href="descripcionVestimenta_face.xhtml?idVesti=#{vestimenta.id}" class="movie__title">#{vestimenta.descripcion}</a></li>
+		         
+		         <li >Color: #{vestimenta.color}</li>
+			 	   <li >Talla: #{vestimenta.talla}</li>
+			 	   <li >Marca: #{vestimenta.marca.nombre}</li>
+		           
+						<li><i class="icon1"> </i><p>#{vestimenta.likes}</p></li>
+	
+						<li><p><img src="#{vestimenta.raiting}" /></p></li>
+						
+				   </ul>
+		    </div>							
+		          
+	        </div>
+	
+	            
+	        </p:panelGrid>
+	 
+	    </p:carousel>
+	 
+	</h:form>	
+</ui:define>    
+
+
+
+
+<ui:define name="carrusel_estilo">
+	<h:form id="form2">
+	    <p:carousel value="#{principalControlador.vestimentasPopulares}" headerText="Mas Populares" var="vestimenta" itemStyle="text-align:right" responsive="true">
+	        <p:panelGrid columns="1" style="width:100%;margin:0px 30px" columnClasses="label,value"  styleClass="ui-panelgrid-blank">
+	            <f:facet name="header">
+	         <p:graphicImage name="#{vestimenta.imagen}"/>
+	            </f:facet>
+	 
+	
+	<div class="movie movie-test movie-test-dark movie-test-right">			  
+		     <div class="movie__images">
+		         <a href="descripcionVestimenta_face.xhtml?idVesti=#{vestimenta.id}" class="movie-beta__link">
+		         <img alt="" src="#{vestimenta.imagen}" class="img-responsive" />
+		         </a>
+			 </div>
+			
+			<div class="movie__info">
+		 <ul class="list_6">
+		      <li><a href="descripcionVestimenta_face.xhtml?idVesti=#{vestimenta.id}" class="movie__title">#{vestimenta.descripcion}</a></li>
+		           <li >Color: #{vestimenta.color}</li>
+			 	   <li >Talla: #{vestimenta.talla}</li>
+			 	   <li >Marca: #{vestimenta.marca.nombre}</li>
+		           
+						<li><i class="icon1"> </i><p>#{vestimenta.likes}</p></li>
+	
+						<li><p><img src="#{vestimenta.raiting}" /></p></li>
+						
+				   </ul>
+		    </div>							
+		          
+	        </div>
+	
+	            
+	        </p:panelGrid>
+	 
+	    </p:carousel>
+	 
+	</h:form>	
+</ui:define>    
+
+
+<ui:define name="carrusel_me_gustaron">
+	<h:form>
+	    <p:carousel value="#{principalControlador.vestimentasMeGustaron}" headerText="Me gustaron" var="vestimenta" itemStyle="text-align:right" responsive="true">
+	        <p:panelGrid columns="1" style="width:100%;margin:0px 30px" columnClasses="label,value"  styleClass="ui-panelgrid-blank">
+	            <f:facet name="header">
+	         <p:graphicImage name="#{vestimenta.imagen}"/>
+	            </f:facet>
+	 
+	
+	<div class="movie movie-test movie-test-dark movie-test-left">			  
+		     <div class="movie__images">
+		         <a href="descripcionVestimenta_face.xhtml?idVesti=#{vestimenta.id}" class="movie-beta__link">
+		         <img alt="" src="#{vestimenta.imagen}" class="img-responsive" />
+		         </a>
+			 </div>
+			
+			<div class="movie__info">
+		      <ul class="list_6">
+		      <li><a href="descripcionVestimenta_face.xhtml?idVesti=#{vestimenta.id}" class="movie__title">#{vestimenta.descripcion}</a></li>
+		         
+		         <li >Color: #{vestimenta.color}</li>
+			 	   <li >Talla: #{vestimenta.talla}</li>
+			 	   <li >Marca: #{vestimenta.marca.nombre}</li>
+		           
+						<li><i class="icon1"> </i><p>#{vestimenta.likes}</p></li>
+	
+						<li><p><img src="#{vestimenta.raiting}" /></p></li>
+						
+				   </ul>
+		    </div>							
+		          
+	        </div>
+	
+	            
+	        </p:panelGrid>
+	 
+	    </p:carousel>
+	 
+	</h:form>	
+</ui:define>     
+    
+   
+   <ui:define name="btnsalir">
+   			   <ul class="header_right_box">
+		<!--		 <li><img src="images/p1.png" alt=""/></li>-->
+				 <li><p><a href="#{votoDescControlador.btnSalir()}">Salir</a></p></li>
+				 <li class="last"><i class="edit"> </i></li>
+				 <div class="clearfix"> </div>
+			   </ul>
+			   
+	</ui:define>			   
+    
+    
+   <ui:define name="btnbuscar">
+
+<h:form>
+		   <ul class="header_right_box">
+		<!--		 <li><img src="images/p1.png" alt=""/></li>-->
+				 <li><p><a href="#{principalControlador.btnBuscar()}">Buscar...</a></p></li>
+				 <li class="last"><i class="edit"> </i></li>
+				 
+			   </ul>
+  </h:form>  
+    </ui:define> 
+    
+	
+	</ui:composition>
+
+  
+  
+  
+</html>
